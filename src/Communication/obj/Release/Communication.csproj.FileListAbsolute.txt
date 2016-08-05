@@ -1,0 +1,7 @@
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\Communication.dll
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\Communication.pdb
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\obj\Release\Communication.dll
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\obj\Release\Communication.pdb
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\obj\Release\Communication.csprojResolveAssemblyReference.cache
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\NModbus4.dll
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\NModbus4.xml

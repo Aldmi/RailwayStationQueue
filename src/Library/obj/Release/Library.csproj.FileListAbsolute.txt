@@ -1,0 +1,5 @@
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Library\bin\Release\Library.dll
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Library\bin\Release\Library.pdb
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Library\obj\Release\Library.csprojResolveAssemblyReference.cache
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Library\obj\Release\Library.dll
+D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Library\obj\Release\Library.pdb
