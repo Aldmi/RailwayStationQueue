@@ -47,12 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\TerminalModel.cs" />
+    <Compile Include="Presenter\IPresenter.cs" />
+    <Compile Include="Presenter\MainPresenter.cs" />
     <Compile Include="View\DialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\DialogForm.Designer.cs">
       <DependentUpon>DialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IMainForm.cs" />
+    <Compile Include="View\IView.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

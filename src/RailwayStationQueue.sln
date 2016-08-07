@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{87B6F9EF-6A0D-4DAF-9DF0-718036B1C8E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListViewTest", "C:\Users\Aldmi\Documents\Visual Studio 2015\Projects\ListViewTest\ListViewTest\ListViewTest.csproj", "{C0FD3FCC-9D95-417E-B5ED-8ED36E6E252B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{87B6F9EF-6A0D-4DAF-9DF0-718036B1C8E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B6F9EF-6A0D-4DAF-9DF0-718036B1C8E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B6F9EF-6A0D-4DAF-9DF0-718036B1C8E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C0FD3FCC-9D95-417E-B5ED-8ED36E6E252B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C0FD3FCC-9D95-417E-B5ED-8ED36E6E252B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C0FD3FCC-9D95-417E-B5ED-8ED36E6E252B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C0FD3FCC-9D95-417E-B5ED-8ED36E6E252B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

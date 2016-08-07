@@ -37,7 +37,7 @@
             // 
             this.btnVillage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVillage.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnVillage.BackColor = System.Drawing.Color.DimGray;
             this.btnVillage.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnVillage.ForeColor = System.Drawing.Color.White;
             this.btnVillage.Location = new System.Drawing.Point(71, 264);
@@ -54,7 +54,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.Brown;
+            this.textBox1.BackColor = System.Drawing.Color.Crimson;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.No;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -73,7 +73,7 @@
             // 
             this.btnLongRoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLongRoad.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnLongRoad.BackColor = System.Drawing.Color.DimGray;
             this.btnLongRoad.Font = new System.Drawing.Font("Arial", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLongRoad.ForeColor = System.Drawing.Color.White;
             this.btnLongRoad.Location = new System.Drawing.Point(71, 368);
@@ -86,7 +86,7 @@
             this.btnLongRoad.UseVisualStyleBackColor = false;
             this.btnLongRoad.Click += new System.EventHandler(this.btnLongRoad_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
