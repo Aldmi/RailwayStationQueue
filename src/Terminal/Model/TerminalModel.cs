@@ -1,7 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Communication.Annotations;
 using Communication.Settings;
 using Communication.TcpIp;
 using Library.Xml;
@@ -12,15 +15,26 @@ using Terminal.View;
 
 namespace Terminal.Model
 {
-    public class TerminalModel
+    public class TerminalModel : INotifyPropertyChanged
     {
         #region prop
 
         public MasterTcpIp MasterTcpIp { get; set; }
         public PrintTicket PrintTicket { get; set; }
 
-        #endregion
+        private string _errorString;
+        public string ErrorString
+        {
+            get { return _errorString; }
+            set
+            {
+                if (value == _errorString) return;
+                _errorString = value;
+                OnPropertyChanged();
+            }
+        }
 
+        #endregion
 
 
 
@@ -28,11 +42,17 @@ namespace Terminal.Model
         #region Events
 
         public event Func<string, string, bool> ConfirmationAdded;
-
         private bool OnConfirmationAdded(string arg1, string arg2)
         {
             var res = ConfirmationAdded?.Invoke(arg1, arg2);
             return res != null && res.Value;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
@@ -43,9 +63,8 @@ namespace Terminal.Model
 
         #region Methods
 
-        public async Task Start()
+        public void LoadSetting()
         {
-            //ЗАГРУЗКА НАСТРОЕК------------------------------------------------------
             XmlMasterSettings xmlTerminal;
             try
             {
@@ -57,27 +76,32 @@ namespace Terminal.Model
             }
             catch (FileNotFoundException ex)
             {
-                //MessageBox.Show(ex.ToString());  //TODO: как прокинуть MessageBox
+                ErrorString = ex.ToString();
                 return;
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("ОШИБКА в узлах дерева XML файла настроек:  " + ex);
+                ErrorString = "ОШИБКА в узлах дерева XML файла настроек:  " + ex;
                 return;
             }
 
             MasterTcpIp = new MasterTcpIp(xmlTerminal);
-            PrintTicket = new PrintTicket();              //TODO: get printername
-
-            await MasterTcpIp.ReConnect();
+            PrintTicket = new PrintTicket();                   //TODO: get printername
         }
 
 
+        public async Task Start()
+        {
+            if (MasterTcpIp != null)
+            {
+                  await MasterTcpIp.ReConnect();
+            }
+        }
 
 
         public async Task TrainSelection(byte numberQueue)
         {
-            if (!MasterTcpIp.IsConnect)
+            if (MasterTcpIp == null || !MasterTcpIp.IsConnect)
                 return;
 
             //ЗАПРОС О СОСТОЯНИИ ОЧЕРЕДИ
@@ -90,11 +114,8 @@ namespace Terminal.Model
                 var ticketName = prefix + provider.OutputData.NumberElement.ToString("000");
                 var countPeople = provider.OutputData.CountElement.ToString();
 
-                //var dialogForm = new DialogForm(ticketName, countPeople);
-                //var result = dialogForm.ShowDialog();
-
-                var result= OnConfirmationAdded(ticketName, countPeople);
-                if (result)
+                var isAdded= OnConfirmationAdded(ticketName, countPeople);
+                if (isAdded)
                 {
                     //ЗАПРОС О ДОБАВЛЕНИИ ЭЛЕМЕНТА В ОЧЕРЕДЬ
                     provider = new Terminal2ServerExchangeDataProvider { InputData = new TerminalInData { NumberQueue = numberQueue, Action = TerminalAction.Add } };
@@ -106,7 +127,6 @@ namespace Terminal.Model
                         ticketName = prefix + provider.OutputData.NumberElement.ToString("000");
                         countPeople = provider.OutputData.CountElement.ToString();
 
-                        //MessageBox.Show($"Печать!!!\n№ билета:{ticketName}\n  Кол-во клиентов перед вами:{countPeople}\n Дата: {provider.OutputData.AddedTime}\n");
                         PrintTicket.Print(ticketName, countPeople, provider.OutputData.AddedTime);
                     }
                 }
@@ -118,5 +138,7 @@ namespace Terminal.Model
         }
 
         #endregion
+
+
     }
 }

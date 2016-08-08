@@ -29,22 +29,40 @@ namespace Terminal.Presenter
 
 
 
+
         #region ctor
 
         public MainPresenter(IMainForm view)
         {
             _view = view;
-            _view.EhGetInfoLong += _view_EhGetInfoLong;
+            _view.EhGetInfoLongRoad += ViewEhGetInfoLongRoad;
             _view.EhGetInfoVilage += _view_EhGetInfoVilage;
 
             _model = new TerminalModel();
-            _model.MasterTcpIp.PropertyChanged += _model_MasterTcpIp_PropertyChanged;
+            _model.PropertyChanged += _model_PropertyChanged;
             _model.ConfirmationAdded += _model_ConfirmationAdded;
-            _mainTask = _model.Start();
+
+            _model.LoadSetting();
+            if (_model.MasterTcpIp != null)
+            {
+                _model.MasterTcpIp.PropertyChanged += _model_MasterTcpIp_PropertyChanged;
+                _mainTask = _model.Start();
+            }
+        }
+
+        private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var terminal = sender as TerminalModel;
+            if (terminal != null)
+            {
+                if (e.PropertyName == "ErrorString")
+                {
+                    _view.ErrorString = terminal.ErrorString;
+                }
+            }
         }
 
         #endregion
-
 
 
 
@@ -57,11 +75,12 @@ namespace Terminal.Presenter
         }
 
 
-        private async void _view_EhGetInfoLong(object sender, EventArgs e)
+        private async void ViewEhGetInfoLongRoad(object sender, EventArgs e)
         {
             const byte numberQueue = 2;
             await _model.TrainSelection(numberQueue);
         }
+
 
         private void _model_MasterTcpIp_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -71,14 +90,10 @@ namespace Terminal.Presenter
                 if (e.PropertyName == "IsConnect")
                 {
                     _view.IsConnect = master.IsConnect;
-                    //btnVillage.BackColor = master.IsConnect ? Color.MidnightBlue : Color.Magenta;
-                    //btnLongRoad.BackColor = master.IsConnect ? Color.MidnightBlue : Color.Magenta;
                 }
                 else if (e.PropertyName == "IsRunDataExchange")
                 {
-                    _view.IsRunDataExchange = !master.IsRunDataExchange;
-                    //btnVillage.Enabled = !master.IsRunDataExchange;
-                    //btnLongRoad.Enabled = !master.IsRunDataExchange;
+                    _view.IsRunDataExchange = master.IsRunDataExchange;
                 }
             }
         }
@@ -86,7 +101,7 @@ namespace Terminal.Presenter
         
         private bool _model_ConfirmationAdded(string ticketName, string countPeople)
         {
-            //TODO: Работать через Presenter
+            //TODO: Работать через Presenter новой формы
             var dialogForm = new DialogForm(ticketName, countPeople);
             var result = dialogForm.ShowDialog();
 

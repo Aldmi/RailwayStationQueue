@@ -7,8 +7,9 @@ namespace Terminal.View
     {
         bool IsConnect { set; }
         bool IsRunDataExchange{ set; }
+        string ErrorString {set; }
 
         event EventHandler<EventArgs> EhGetInfoVilage;
-        event EventHandler<EventArgs> EhGetInfoLong;
+        event EventHandler<EventArgs> EhGetInfoLongRoad;
     }
 }

@@ -63,3 +63,17 @@ D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.DialogForm.resources
 D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.MainForm.resources
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.DialogForm.resources
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.MainForm.resources
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.View.DialogForm.resources
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.View.MainForm.resources
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.Properties.Resources.resources
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.exe
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.pdb
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.exe.config
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.exe
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.pdb
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Communication.dll
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Library.dll
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Communication.pdb
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Library.pdb

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Terminal.Presenter;
 using Terminal.View;
 
 namespace Terminal
@@ -17,7 +18,9 @@ namespace Terminal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            var presenter= new MainPresenter(new MainForm());
+            presenter.Run();
         }
     }
 }
