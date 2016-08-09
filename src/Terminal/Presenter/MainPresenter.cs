@@ -50,19 +50,8 @@ namespace Terminal.Presenter
             }
         }
 
-        private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            var terminal = sender as TerminalModel;
-            if (terminal != null)
-            {
-                if (e.PropertyName == "ErrorString")
-                {
-                    _view.ErrorString = terminal.ErrorString;
-                }
-            }
-        }
-
         #endregion
+
 
 
 
@@ -98,14 +87,26 @@ namespace Terminal.Presenter
             }
         }
 
-        
+
+        private void _model_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var terminal = sender as TerminalModel;
+            if (terminal != null)
+            {
+                if (e.PropertyName == "ErrorString")
+                {
+                    _view.ErrorString = terminal.ErrorString;
+                }
+            }
+        }
+
+
         private bool _model_ConfirmationAdded(string ticketName, string countPeople)
         {
-            //TODO: Работать через Presenter новой формы
-            var dialogForm = new DialogForm(ticketName, countPeople);
-            var result = dialogForm.ShowDialog();
+            var dialogPresenter = new DialogPresenter(new DialogForm(), ticketName, countPeople);
+            dialogPresenter.Run();
 
-            return true;
+            return dialogPresenter.Act == Act.Ok;
         }
 
         #endregion

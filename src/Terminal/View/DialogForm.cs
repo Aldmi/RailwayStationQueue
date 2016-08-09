@@ -3,30 +3,63 @@ using System.Windows.Forms;
 
 namespace Terminal.View
 {
-    public partial class DialogForm : Form
+    public partial class DialogForm : Form, IDialogForm
     {
-        private DialogForm()
+        #region prop
+
+        public string TicketName
+        {
+            set { txtBox_ticket.Text = $"Номер вашего билета {value}"; }
+        }
+
+        public string CountPeople
+        {
+            set { txtBox_numberPeople.Text = $"Впереди вас {value} человек"; }
+        }
+
+        #endregion
+
+
+
+
+        #region ctor
+
+        public DialogForm()
         {
             InitializeComponent();
         }
 
+        #endregion
 
-        public DialogForm(string ticketName, string countPeople) : this()
-        {
-            txtBox_ticket.Text = $"Номер вашего билета {ticketName}";
-            txtBox_numberPeople.Text = $"Впереди вас {countPeople} человек";
-        }
 
+
+
+        #region Events
+
+        public event EventHandler<EventArgs> EhOk;
         private void btn_OK_Click_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            EhOk?.Invoke(this, EventArgs.Empty);
         }
 
+        public event EventHandler<EventArgs> EhCancel;
         private void btn_Cancel_Click_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            EhCancel?.Invoke(this, EventArgs.Empty);
         }
+
+        #endregion
+
+
+
+
+        #region Methods
+
+        public new void Show()
+        {
+            ShowDialog();
+        }
+
+        #endregion 
     }
 }
