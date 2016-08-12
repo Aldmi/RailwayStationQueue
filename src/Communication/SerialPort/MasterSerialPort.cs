@@ -23,10 +23,7 @@ using Modbus.Utility;
 
 namespace Communication.SerialPort
 {
-    /// <summary>
-    /// Перед началом работы с портом проверять флаг занятости порта IsBusy.
-    /// И если порт свободен и нужно с ним работать то выставить это флаг.
-    /// </summary>
+
     public class MasterSerialPort : INotifyPropertyChanged, IDisposable
     {
         #region fields
@@ -34,6 +31,7 @@ namespace Communication.SerialPort
         private string _statusString;
         private bool _isConnect;
         private bool _isRunDataExchange;
+        private readonly int _timeCycleReConnect;
 
         private readonly System.IO.Ports.SerialPort _port; //COM порт
 
@@ -44,7 +42,7 @@ namespace Communication.SerialPort
 
         #region ctor
 
-        public MasterSerialPort(string portName, int baudRate, int dataBits, StopBits stopBits)
+        public MasterSerialPort(string portName, int baudRate, int dataBits, StopBits stopBits, int timeCycleReConnect)
         {
             _port = new System.IO.Ports.SerialPort("COM" + portName)
             {
@@ -53,10 +51,11 @@ namespace Communication.SerialPort
                 Parity = Parity.None,
                 StopBits = stopBits
             };
+            _timeCycleReConnect = timeCycleReConnect;
         }
 
         public MasterSerialPort(XmlSerialSettings xmlSerial) :
-            this(xmlSerial.Port, xmlSerial.BaudRate, xmlSerial.DataBits, xmlSerial.StopBits)
+            this(xmlSerial.Port, xmlSerial.BaudRate, xmlSerial.DataBits, xmlSerial.StopBits, xmlSerial.TimeCycleReConnect)
         {
         }
 
@@ -79,6 +78,7 @@ namespace Communication.SerialPort
                 OnPropertyChanged();
             }
         }
+
         public bool IsConnect
         {
             get { return _isConnect; }
@@ -89,6 +89,7 @@ namespace Communication.SerialPort
                 OnPropertyChanged();
             }
         }
+
         public bool IsRunDataExchange
         {
             get { return _isRunDataExchange; }
@@ -109,14 +110,14 @@ namespace Communication.SerialPort
 
         #region Methode
 
-        public async Task<bool> CycleReConnect(int period)
+        public async Task<bool> CycleReConnect()
         {
             bool res = false;
             while (!res)
             {
                 res = ReConnect();
                 if(!res)
-                  await Task.Delay(period, Cts.Token);
+                  await Task.Delay(_timeCycleReConnect, Cts.Token);
             }
 
             return true;

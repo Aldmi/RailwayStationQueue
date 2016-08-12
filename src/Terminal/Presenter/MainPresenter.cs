@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ using Terminal.View;
 
 namespace Terminal.Presenter
 {
-    public class MainPresenter : IPresenter
+    public class MainPresenter : IPresenter, IDisposable
     {
         #region field
 
@@ -78,11 +79,11 @@ namespace Terminal.Presenter
             {
                 if (e.PropertyName == "IsConnect")
                 {
-                    _view.IsConnect = master.IsConnect;
+                    _view.BackgroundColorDataGrid = master.IsConnect ? Color.MidnightBlue : Color.Magenta;
                 }
                 else if (e.PropertyName == "IsRunDataExchange")
                 {
-                    _view.IsRunDataExchange = master.IsRunDataExchange;
+                    _view.BattonEnable = master.IsRunDataExchange;
                 }
             }
         }
@@ -119,6 +120,19 @@ namespace Terminal.Presenter
         public void Run()
         {
             _view.Show();
+        }
+
+        #endregion
+
+
+
+
+
+        #region IDisposable
+
+        public void Dispose()
+        {
+            _model.Dispose();
         }
 
         #endregion

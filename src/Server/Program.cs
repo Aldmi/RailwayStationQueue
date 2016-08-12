@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ListViewTest;
-
-using MainForm = ListViewTest.MainForm;
+using Server.Presenter;
+using MainForm = Server.View.MainForm;
 
 namespace Server
 {
@@ -19,7 +18,11 @@ namespace Server
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            using (var presenter = new MainPresenter(new MainForm()))
+            {
+                presenter.Run();
+            }
         }
     }
 }

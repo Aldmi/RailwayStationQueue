@@ -3,9 +3,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Communication.Annotations;
-using Communication.Interfaces;
 
-namespace Server.Model
+namespace Server.Entitys
 {
     public class Сashier : INotifyPropertyChanged
     {

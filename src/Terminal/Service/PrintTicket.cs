@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Terminal.Service
 {
-    public class PrintTicket
+    public class PrintTicket : IDisposable
     {
         #region Field
 
@@ -76,6 +76,18 @@ namespace Terminal.Service
             _dateAdded = dateAdded;
 
             _printDocument.Print();
+        }
+
+        #endregion
+
+
+
+
+        #region IDisposable
+
+        public void Dispose()
+        {
+            _printDocument?.Dispose();
         }
 
         #endregion

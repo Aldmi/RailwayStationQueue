@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Drawing;
 
 
 namespace Terminal.View
 {
     public interface IMainForm : IView
     {
-        bool IsConnect { set; }
-        bool IsRunDataExchange{ set; }
+        Color BackgroundColorDataGrid { set; }
+        bool BattonEnable{ set; }
+
         string ErrorString {set; }
 
         event EventHandler<EventArgs> EhGetInfoVilage;

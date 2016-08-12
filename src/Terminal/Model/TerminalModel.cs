@@ -3,19 +3,17 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Communication.Annotations;
 using Communication.Settings;
 using Communication.TcpIp;
 using Library.Xml;
 using Terminal.Infrastructure;
 using Terminal.Service;
-using Terminal.View;
 
 
 namespace Terminal.Model
 {
-    public class TerminalModel : INotifyPropertyChanged
+    public class TerminalModel : INotifyPropertyChanged, IDisposable
     {
         #region prop
 
@@ -140,5 +138,16 @@ namespace Terminal.Model
         #endregion
 
 
+
+
+        #region IDisposable
+
+        public void Dispose()
+        {
+            //MasterTcpIp?.Dispose();
+            PrintTicket?.Dispose();
+        }
+
+        #endregion
     }
 }

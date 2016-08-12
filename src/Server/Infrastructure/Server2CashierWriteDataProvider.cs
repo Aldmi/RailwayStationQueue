@@ -6,6 +6,7 @@ using System.Text;
 using Communication.Annotations;
 using Communication.Interfaces;
 using Library.Library;
+using Server.Entitys;
 using Server.Model;
 
 namespace Server.Infrastructure

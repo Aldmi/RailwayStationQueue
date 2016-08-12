@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Server.Model
+namespace Server.Entitys
 {
     public class TicketItem
     {

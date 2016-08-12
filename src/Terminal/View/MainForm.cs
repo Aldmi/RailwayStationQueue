@@ -16,16 +16,16 @@ namespace Terminal.View
     {
         #region prop
 
-        public bool IsConnect
+        public Color BackgroundColorDataGrid
         {
             set
             {
-                btnVillage.BackColor = value ? Color.MidnightBlue : Color.Magenta;
-                btnLongRoad.BackColor = value ? Color.MidnightBlue : Color.Magenta;
+                btnVillage.BackColor = value;
+                btnLongRoad.BackColor = value;
             }
         }
 
-        public bool IsRunDataExchange
+        public bool BattonEnable
         {
             set
             {
@@ -33,6 +33,7 @@ namespace Terminal.View
                 btnLongRoad.Enabled = !value;
             }
         }
+
 
         public string ErrorString
         {
@@ -66,6 +67,7 @@ namespace Terminal.View
         private void textBox1_Enter(object sender, EventArgs e)
         {
             btnVillage.Focus();
+            btnLongRoad.Focus();
         }
 
 

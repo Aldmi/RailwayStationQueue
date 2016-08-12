@@ -30,3 +30,12 @@ D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Communication\bin\
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Communication\obj\Debug\Communication.dll
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Communication\obj\Debug\Communication.pdb
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\Communication.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\Communication.pdb
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\Library.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\NModbus4.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\Library.pdb
+D:\Git\RailwayStationQueue\src\Communication\bin\Debug\NModbus4.xml
+D:\Git\RailwayStationQueue\src\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
+D:\Git\RailwayStationQueue\src\Communication\obj\Debug\Communication.dll
+D:\Git\RailwayStationQueue\src\Communication\obj\Debug\Communication.pdb

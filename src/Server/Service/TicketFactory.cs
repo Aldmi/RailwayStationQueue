@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using Server.Entitys;
 using Server.Model;
 
 namespace Server.Service

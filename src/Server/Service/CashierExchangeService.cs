@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Communication.SerialPort;
+using Server.Entitys;
 using Server.Infrastructure;
 using Server.Model;
 

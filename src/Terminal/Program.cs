@@ -19,8 +19,10 @@ namespace Terminal
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var presenter= new MainPresenter(new MainForm());
-            presenter.Run();
+            using (var presenter = new MainPresenter(new MainForm()))
+            {
+                presenter.Run();
+            }
         }
     }
 }
