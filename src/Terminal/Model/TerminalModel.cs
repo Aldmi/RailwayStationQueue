@@ -106,13 +106,14 @@ namespace Terminal.Model
             var provider = new Terminal2ServerExchangeDataProvider { InputData = new TerminalInData { NumberQueue = numberQueue, Action = TerminalAction.Info } };
             await MasterTcpIp.RequestAndRespoune(provider);
 
+   
             if (provider.IsOutDataValid)
             {
                 var prefix = provider.OutputData.NumberQueue == 1 ? "П" : "Э";
                 var ticketName = prefix + provider.OutputData.NumberElement.ToString("000");
                 var countPeople = provider.OutputData.CountElement.ToString();
 
-                var isAdded= OnConfirmationAdded(ticketName, countPeople);
+                var isAdded = OnConfirmationAdded(ticketName, countPeople);
                 if (isAdded)
                 {
                     //ЗАПРОС О ДОБАВЛЕНИИ ЭЛЕМЕНТА В ОЧЕРЕДЬ

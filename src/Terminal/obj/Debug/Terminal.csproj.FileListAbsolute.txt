@@ -1,79 +1,9 @@
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe.config
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\bin\Debug\Terminal.pdb
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\bin\Debug\Communication.dll
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\bin\Debug\Communication.pdb
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.Form1.resources
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.exe
-c:\users\aldmi\documents\visual studio 2015\Projects\RailwayStationQueue\Terminal\obj\Debug\Terminal.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe.config
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.exe
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Communication.dll
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Communication.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe.config
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.exe
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.pdb
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Terminal.pdb
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Communication.dll
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Communication.pdb
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.Form1.resources
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Library.dll
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Library.pdb
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Library.dll
-E:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\bin\Debug\Library.pdb
-D:\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe.config
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.exe
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.pdb
-D:\RailwayStationQueue\Terminal\bin\Debug\Terminal.exe
-D:\RailwayStationQueue\Terminal\bin\Debug\Terminal.pdb
-D:\RailwayStationQueue\Terminal\bin\Debug\Communication.dll
-D:\RailwayStationQueue\Terminal\bin\Debug\Library.dll
-D:\RailwayStationQueue\Terminal\bin\Debug\Communication.pdb
-D:\RailwayStationQueue\Terminal\bin\Debug\Library.pdb
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Terminal.exe.config
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.exe
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Terminal.exe
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Terminal.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Communication.dll
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Library.dll
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Communication.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\bin\Debug\Library.pdb
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.View.DialogForm.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.View.MainForm.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue_new\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.DialogForm.resources
-D:\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.MainForm.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.DialogForm.resources
-D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Terminal\obj\Debug\Terminal.View.MainForm.resources
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.View.DialogForm.resources
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.View.MainForm.resources
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.Properties.Resources.resources
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.csproj.GenerateResource.Cache
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.exe
-D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.pdb
-D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.exe.config
-D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.exe
+D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.dll
 D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Terminal.pdb
 D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Communication.dll
 D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Library.dll
 D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Communication.pdb
 D:\Git\RailwayStationQueue\src\Terminal\bin\Debug\Library.pdb
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.dll
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.pdb
+D:\Git\RailwayStationQueue\src\Terminal\obj\Debug\Terminal.csprojResolveAssemblyReference.cache
