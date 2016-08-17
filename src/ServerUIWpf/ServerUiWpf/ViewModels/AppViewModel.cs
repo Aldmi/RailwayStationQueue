@@ -5,8 +5,8 @@ using System.Windows;
 using System.Windows.Media;
 using Caliburn.Micro;
 using Communication.TcpIp;
-using TempServer.Entitys;
-using TempServer.Model;
+using Server.Entitys;
+using Server.Model;
 using TicketItem = ServerUi.Model.TicketItem;
 
 namespace ServerUi.ViewModels

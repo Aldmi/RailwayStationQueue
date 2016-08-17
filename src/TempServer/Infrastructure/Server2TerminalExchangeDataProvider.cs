@@ -6,7 +6,7 @@ using Communication.Annotations;
 using Communication.Interfaces;
 using Terminal.Infrastructure;
 
-namespace TempServer.Infrastructure
+namespace Server.Infrastructure
 {
     public class Server2TerminalExchangeDataProvider : IExchangeDataProvider<TerminalInData, TerminalOutData>
     {

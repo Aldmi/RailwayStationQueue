@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Communication.Annotations;
 
-namespace TempServer.Entitys
+namespace Server.Entitys
 {
     public class Сashier : INotifyPropertyChanged
     {

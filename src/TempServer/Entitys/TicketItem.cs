@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TempServer.Entitys
+namespace Server.Entitys
 {
     public class TicketItem
     {

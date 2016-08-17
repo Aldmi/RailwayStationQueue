@@ -1,7 +1,7 @@
 ﻿using System;
-using TempServer.Entitys;
+using Server.Entitys;
 
-namespace TempServer.Service
+namespace Server.Service
 {
     public class TicketFactory
     {

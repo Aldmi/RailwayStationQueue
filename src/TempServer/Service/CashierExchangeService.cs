@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Communication.SerialPort;
-using TempServer.Entitys;
-using TempServer.Infrastructure;
+using Server.Entitys;
+using Server.Infrastructure;
 
-namespace TempServer.Service
+namespace Server.Service
 {
     public class CashierExchangeService
     {

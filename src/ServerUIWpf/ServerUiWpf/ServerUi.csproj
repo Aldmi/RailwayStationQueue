@@ -143,9 +143,9 @@
       <Project>{87b6f9ef-6a0d-4daf-9df0-718036b1c8e4}</Project>
       <Name>Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TempServer\TempServer.csproj">
+    <ProjectReference Include="..\..\TempServer\Server.csproj">
       <Project>{edd20fd4-5321-4660-af95-379919c7c913}</Project>
-      <Name>TempServer</Name>
+      <Name>Server</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

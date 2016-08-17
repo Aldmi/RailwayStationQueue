@@ -11,13 +11,13 @@ using Communication.Settings;
 using Communication.TcpIp;
 using Library.Logs;
 using Library.Xml;
-using TempServer.Entitys;
-using TempServer.Infrastructure;
-using TempServer.Service;
+using Server.Entitys;
+using Server.Infrastructure;
+using Server.Service;
 using TempServer.Settings;
 using Terminal.Infrastructure;
 
-namespace TempServer.Model
+namespace Server.Model
 {
     public class ServerModel : INotifyPropertyChanged, IDisposable
     {

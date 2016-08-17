@@ -7,7 +7,7 @@ using Communication.Annotations;
 using Communication.Interfaces;
 using Library.Library;
 
-namespace TempServer.Infrastructure
+namespace Server.Infrastructure
 {
     public enum CashierHandling : byte { IsNotHandling, IsStartHandling, IsSuccessfulHandling, IsErrorHandling }
 

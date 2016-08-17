@@ -6,9 +6,9 @@ using System.Text;
 using Communication.Annotations;
 using Communication.Interfaces;
 using Library.Library;
-using TempServer.Entitys;
+using Server.Entitys;
 
-namespace TempServer.Infrastructure
+namespace Server.Infrastructure
 {
     /// <summary>
     /// Modbus Функция 0x10 
