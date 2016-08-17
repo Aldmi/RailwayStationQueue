@@ -1,24 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.SqlTypes;
 using System.IO.Ports;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Communication.Annotations;
 using Communication.Interfaces;
 using Communication.Settings;
 using Library.Async;
-using Library.Convertion;
-using Library.Library;
-using Modbus.Data;
-using Modbus.Device;
-using Modbus.Utility;
-
-
 
 
 namespace Communication.SerialPort
