@@ -106,17 +106,59 @@
         </ListView>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Name="Add"
-                    Width="100"
-                    Height="100"
+            <Button Name="V1_Add"
+                    Width="50"
+                    Height="50"
                     Margin="5"
-                    Content="Add" />
+                    Content="V1_Add" />
 
-            <Button Name="Remove"
-                    Width="100"
-                    Height="100"
+            <Button Name="V1_Sucsess"
+                    Width="50"
+                    Height="50"
                     Margin="5"
-                    Content="Remove" />
+                    Content="V1_Sucsess" />
+
+            <Button Name="V1_Error"
+                    Width="50"
+                    Height="50"
+                    Margin="5"
+                    Content="V1_Error" />
+
+            <Button Name="V2_Add"
+                    Width="50"
+                    Height="50"
+                    Margin="40,5,5,5"
+                    Content="V2_Add" />
+
+            <Button Name="V2_Sucsess"
+                    Width="50"
+                    Height="50"
+                    Margin="5"
+                    Content="V2_Sucsess" />
+
+            <Button Name="V2_Error"
+                    Width="50"
+                    Height="50"
+                    Margin="5"
+                    Content="V2_Error" />
+
+            <Button Name="V3_Add"
+                    Width="50"
+                    Height="50"
+                    Margin="40,5,5,5"
+                    Content="V3_Add" />
+
+            <Button Name="V3_Sucsess"
+                    Width="50"
+                    Height="50"
+                    Margin="5"
+                    Content="V3_Sucsess" />
+
+            <Button Name="V3_Error"
+                    Width="50"
+                    Height="50"
+                    Margin="5"
+                    Content="V3_Error" />
         </StackPanel>
     </Grid>
 </Window>

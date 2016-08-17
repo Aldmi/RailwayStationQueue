@@ -24,3 +24,12 @@ D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.Proper
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.csproj.GenerateResource.Cache
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.exe
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.pdb
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Communication.dll
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Library.dll
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\TempServer.dll
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Terminal.dll
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Communication.pdb
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Library.pdb
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\TempServer.pdb
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Terminal.pdb
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.csprojResolveAssemblyReference.cache
