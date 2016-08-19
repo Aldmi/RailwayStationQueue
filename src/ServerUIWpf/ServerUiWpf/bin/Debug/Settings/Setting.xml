@@ -6,7 +6,6 @@
   </LogSetting>
 
   <Server>
-  
     <Listener>
       <Port>50000</Port>
     </Listener>
@@ -19,11 +18,14 @@
 	  <TimeRespon>2000</TimeRespon>
 	  <TimeCycleReConnect>3000</TimeCycleReConnect>
     </Serial>
-	
   </Server>
 
-   <Programm>
-   	 <CashierMaxCountTryHanding>3</CashierMaxCountTryHanding>
-     <BlockClickTime>5000</BlockClickTime>
-   </Programm>
+    <Cashiers>
+	   <Cashier Id="1" Port="1" Prefix="П" MaxCountTryHanding="3"/>
+	   <Cashier Id="2" Port="1" Prefix="П" MaxCountTryHanding="3"/>
+	   <Cashier Id="3" Port="1" Prefix="П" MaxCountTryHanding="3"/>
+	   <Cashier Id="4" Port="1" Prefix="Э" MaxCountTryHanding="3"/>
+	   <Cashier Id="5" Port="1" Prefix="Э" MaxCountTryHanding="3"/>
+	   <Cashier Id="6" Port="1" Prefix="Э" MaxCountTryHanding="3"/>
+    </Cashiers>
 </Root>

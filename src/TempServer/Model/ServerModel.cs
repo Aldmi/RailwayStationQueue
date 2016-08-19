@@ -14,7 +14,7 @@ using Library.Xml;
 using Server.Entitys;
 using Server.Infrastructure;
 using Server.Service;
-using TempServer.Settings;
+using Server.Settings;
 using Terminal.Infrastructure;
 
 namespace Server.Model
@@ -78,7 +78,7 @@ namespace Server.Model
             XmlListenerSettings xmlListener;
             XmlSerialSettings xmlSerial;
             XmlLogSettings xmlLog;
-            XmlProgrammSettings xmlProgramm;
+            List<XmlCashierSettings> xmlCashier;
             try
             {
                 var xmlFile = XmlWorker.LoadXmlFile("Settings", "Setting.xml"); //все настройки в одном файле
@@ -88,7 +88,7 @@ namespace Server.Model
                 xmlListener = XmlListenerSettings.LoadXmlSetting(xmlFile);
                 xmlSerial = XmlSerialSettings.LoadXmlSetting(xmlFile);
                 xmlLog = XmlLogSettings.LoadXmlSetting(xmlFile);
-                xmlProgramm = XmlProgrammSettings.LoadXmlSetting(xmlFile);
+                xmlCashier = XmlCashierSettings.LoadXmlSetting(xmlFile);
             }
             catch (FileNotFoundException ex)
             {
@@ -178,12 +178,11 @@ namespace Server.Model
 
 
             //СОЗДАНИЕ КАССИРОВ-----------------------------------------------------------------------
-            Сashiers.Add(new Сashier(0x01, QueueVilage, xmlProgramm.CashierMaxCountTryHanding));
-            Сashiers.Add(new Сashier(0x02, QueueVilage, xmlProgramm.CashierMaxCountTryHanding));
-            Сashiers.Add(new Сashier(0x03, QueueVilage, xmlProgramm.CashierMaxCountTryHanding));
-            Сashiers.Add(new Сashier(0x04, QueueLong, xmlProgramm.CashierMaxCountTryHanding));
-            Сashiers.Add(new Сashier(0x05, QueueLong, xmlProgramm.CashierMaxCountTryHanding));
-            Сashiers.Add(new Сashier(0x06, QueueLong, xmlProgramm.CashierMaxCountTryHanding));
+            foreach (var xmlCash in xmlCashier)
+            {
+                var casher = new Сashier(xmlCash.Id, (xmlCash.Prefix == "П") ? QueueVilage : QueueLong, xmlCash.MaxCountTryHanding);
+                Сashiers.Add(casher);
+            }
 
 
             //СОЗДАНИЕ ПОСЛЕД. ПОРТА ДЛЯ ОПРОСА КАССИРОВ-----------------------------------------------------------------------
