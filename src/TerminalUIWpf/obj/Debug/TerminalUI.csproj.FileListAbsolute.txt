@@ -1,3 +1,6 @@
+D:\RailwayStationQueue\TerminalUIWpf\bin\Debug\TerminalUIWpf.exe.config
+D:\RailwayStationQueue\TerminalUIWpf\obj\Debug\TerminalUIWpf.exe
+D:\RailwayStationQueue\TerminalUIWpf\obj\Debug\TerminalUIWpf.pdb
 D:\Git\RailwayStationQueue\src\TerminalUIWpf\bin\Debug\TerminalUIWpf.exe.config
 D:\Git\RailwayStationQueue\src\TerminalUIWpf\bin\Debug\TerminalUIWpf.exe
 D:\Git\RailwayStationQueue\src\TerminalUIWpf\bin\Debug\TerminalUIWpf.pdb

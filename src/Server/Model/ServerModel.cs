@@ -189,6 +189,17 @@ namespace Server.Model
             MasterSerialPort = new MasterSerialPort(xmlSerial);
             CashierExchangeService = new CashierExchangeService(Сashiers, xmlSerial.TimeRespoune);
             MasterSerialPort.AddFunc(CashierExchangeService.ExchangeService);
+
+
+
+            //DEBUG!!!!!!!!
+            //QueueVilage.Enqueue(TicketFactoryVilage.Create(10));
+            //QueueVilage.Enqueue(TicketFactoryVilage.Create(20));
+            //QueueVilage.Enqueue(TicketFactoryVilage.Create(30));
+
+            //QueueLong.Enqueue(TicketFactoryLong.Create(55));
+            //QueueLong.Enqueue(TicketFactoryLong.Create(66));
+            //QueueLong.Enqueue(TicketFactoryLong.Create(77));
         }
 
 

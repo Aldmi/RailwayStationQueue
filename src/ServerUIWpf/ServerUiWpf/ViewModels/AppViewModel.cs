@@ -84,7 +84,6 @@ namespace ServerUi.ViewModels
 
                         TicketItems.Add(new TicketItem { CashierName = "Касса " + c.CurrentTicket.Сashbox,
                                                          TicketName =  $"Талон {c.CurrentTicket.Prefix}{c.CurrentTicket.NumberElement.ToString("000")}" });
-                        //_view.AddRow($"Талон {c.CurrentTicket.Prefix}{c.CurrentTicket.NumberElement.ToString("000")}", "Касса " + c.CurrentTicket.Сashbox);
                         var task = _model.LogTicket?.Add(c.CurrentTicket.ToString());
                         if (task != null) await task;
                     }
@@ -92,7 +91,6 @@ namespace ServerUi.ViewModels
                     {
                         var removeItem = TicketItems.FirstOrDefault((elem) => elem.CashierName.Contains(c.Id.ToString()));
                         TicketItems.Remove(removeItem);
-                        // _view.RemoveRow(c.Id.ToString());
                     }
                 }
             }
@@ -107,7 +105,6 @@ namespace ServerUi.ViewModels
                 if (e.PropertyName == "IsConnect")
                 {
                     ColorBackground = listener.IsConnect ? Brushes.SlateGray : Brushes.Magenta;
-                    // _view.BackgroundColorDataGrid = listener.IsConnect ? Color.DimGray : Color.Brown;
                 }
             }
         }
@@ -120,7 +117,6 @@ namespace ServerUi.ViewModels
             {
                 if (e.PropertyName == "ErrorString")
                 {
-                    //_view.ErrorString = server.ErrorString;
                     MessageBox.Show(server.ErrorString); //TODO: как вызвать MessageBox
                 }
             }
@@ -140,8 +136,6 @@ namespace ServerUi.ViewModels
         }
 
         #endregion
-
-
 
 
 

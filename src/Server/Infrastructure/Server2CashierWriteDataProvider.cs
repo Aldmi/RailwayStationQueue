@@ -17,8 +17,8 @@ namespace Server.Infrastructure
     {
         #region field
 
-        private const ushort StartAddresWrite = 0x0001;
-        private const ushort NWriteRegister = 0x0002;
+        private const ushort StartAddresWrite = 0x0002;
+        private const ushort NWriteRegister = 0x0001;
 
         #endregion
 
@@ -50,12 +50,10 @@ namespace Server.Infrastructure
         /// байт[4]= Кол-во. рег. Ст.
         /// байт[5]= Кол-во. рег. Мл.
         /// байт[6]= Кол-во. байт
-        /// байт[7]= Префикс билета (символ ascii)
-        /// байт[8]= № билета (сотни)
-        /// байт[9]= № билета (десятки)
-        /// байт[10]= № билета (единицы)
-        /// байт[11]= CRC Мл.
-        /// байт[12]= CRC Ст.
+        /// байт[7]= Название билета (0...9 бит - число 0...1023) 
+        /// байт[8]= Название билета (10...15 бит - буква 0-A  Z-25) 
+        /// байт[9]= CRC Мл.
+        /// байт[10]= CRC Ст.
         /// </summary>
         public byte[] GetDataByte()
         {
@@ -77,10 +75,13 @@ namespace Server.Infrastructure
 
             buff[6] = (NWriteRegister * 2);
 
-            buff[7] = (byte)((InputData.Prefix == "П") ? 0xCF : 0xDD);
+            ushort formatNameTicket = (ushort)(InputData.NumberElement & 0x3FF);
+            var prefix = (ushort)(InputData.Prefix == "П" ? 0X0000 : 0x0001) & 0x3F;
+            formatNameTicket |= (ushort)(prefix << 10);
 
-            var numberTicketBuff = Encoding.ASCII.GetBytes(InputData.NumberElement.ToString("000"));
-            numberTicketBuff.CopyTo(buff, 8);
+
+            var ticketNameBuff = BitConverter.GetBytes(formatNameTicket).Reverse().ToArray();
+            ticketNameBuff.CopyTo(buff, 7);
 
             var crc = Crc16.ModRTU_CRC(buff, CountGetDataByte - 2);
             crc.CopyTo(buff, CountGetDataByte - 2);
@@ -111,7 +112,6 @@ namespace Server.Infrastructure
 
             if (data[0] == InputData.Сashbox &&
                 data[1] == 0x10 &&
-                data[5] == BitConverter.ToUInt16(data, 4) &&
                 Crc16.CheckCrc(data))
             {
                 IsOutDataValid = true;

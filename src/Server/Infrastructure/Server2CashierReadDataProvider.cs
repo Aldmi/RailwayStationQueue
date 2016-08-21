@@ -92,12 +92,21 @@ namespace Server.Infrastructure
         /// байт[2]= кол-во байт  (0x06)
         /// байт[3]= Статутс Ст.
         /// байт[4]= Статутс  Мл.
-        /// байт[5]= Префикс билета (символ ascii)
-        /// байт[6]= № билета (сотни)
-        /// байт[7]= № билета (десятки)
-        /// байт[8]= № билета (единицы)
+        /// байт[5]= Счетчик обработанных клиентов Ст.
+        /// байт[6]= Счетчик обработанных клиентов Мл.
+        /// байт[7]= № билета 0-9бит (0-1023) - номер билета
+        /// байт[8]= № билета 0-9бит (0-1023) - номер билета
         /// байт[9]= CRC Мл.
         /// байт[10]= CRC Ст.
+        /// 
+        /// Статус (байт[4])
+        /// бит 0: Станция в работе
+        /// бит 1: Запрос нового пасажира от сервера
+        /// бит 2: Идет обработка пассажира
+        /// бит 3: Последний пассажир обработанн
+        /// бит 4: Результат обработки - успешно
+        /// бит 5: Результат обработки - отсутсвует (обратно в очередь)
+        /// бит 6: Запрос нового пасажира от сервера ПОЛУЧЕНН.
         /// </summary>
         public bool SetDataByte(byte[] data)
         {
@@ -118,23 +127,25 @@ namespace Server.Infrastructure
 
             if (dataBuffer != null)
             {
-                OutputData = new CashierOutData {IsWork = (dataBuffer[0] & 0x01) != 0x00, Handling = CashierHandling.IsNotHandling};
+                OutputData = new CashierOutData {IsWork = (dataBuffer[1] & 0x01) != 0x00, Handling = CashierHandling.IsNotHandling};
 
-                if ((dataBuffer[0] & 0x02) != 0x00)
+
+                if ((dataBuffer[1] & 0x04) == 0x00)                                            // НЕ идет обработка пассажира
                 {
-                    OutputData.Handling = CashierHandling.IsStartHandling;
-                }
-                else if ((dataBuffer[0] & 0x04) != 0x00)
-                {
-                    OutputData.Handling = CashierHandling.IsSuccessfulHandling;
-                }
-                else if ((dataBuffer[0] & 0x08) != 0x00)
-                {
-                    OutputData.Handling = CashierHandling.IsErrorHandling;
+                    if ((dataBuffer[1] & 0x02) != 0x00)                                        // приглашен новый пассажир.
+                    {
+                        OutputData.Handling = CashierHandling.IsStartHandling;
+                    }
+                    else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x10) != 0x00) //Последний пассажир обработан и обработанн успешно
+                    {
+                        OutputData.Handling = CashierHandling.IsSuccessfulHandling;
+                    }
+                    else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x20) != 0x00) //Последний пассажир обработан и обработанн НЕ успешно
+                    {
+                        OutputData.Handling = CashierHandling.IsErrorHandling;
+                    }
                 }
 
-                var prefix = (dataBuffer[2] == 0xCF) ? "П" : "Э";
-                OutputData.NameTicket = prefix + Encoding.ASCII.GetString(dataBuffer, 3, 3);
 
                 IsOutDataValid = true;
                 return true;
