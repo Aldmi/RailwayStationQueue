@@ -11,7 +11,7 @@
     </Listener>
 	
 	<Serial>
-      <Port>3</Port>
+      <Port>1</Port>
 	  <BaudRate>57600</BaudRate>
 	  <DataBits>8</DataBits>
 	  <StopBits>1</StopBits>

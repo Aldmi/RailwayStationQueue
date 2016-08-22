@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Communication.SerialPort;
@@ -13,6 +14,9 @@ namespace Server.Service
 
         private readonly List<Сashier> _cashiers;
         private readonly ushort _timeRespone;
+
+
+        private int _lastSyncLabel;
 
         #endregion
 
@@ -82,7 +86,15 @@ namespace Server.Service
                 {
                     ;
                 }
+            }
 
+             //Отправка запроса синхронизации времени раз в час
+            if (_lastSyncLabel != DateTime.Now.Minute)
+            {
+                _lastSyncLabel = DateTime.Now.Minute;
+
+                var syncTimeProvider = new Server2CashierSyncTimeDataProvider();
+                await port.DataExchangeAsync(_timeRespone, syncTimeProvider, ct);
             }
         }
 

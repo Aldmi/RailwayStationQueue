@@ -43,6 +43,7 @@
     <Compile Include="Entitys\TicketItem.cs" />
     <Compile Include="Entitys\Сashier.cs" />
     <Compile Include="Infrastructure\Server2CashierReadDataProvider.cs" />
+    <Compile Include="Infrastructure\Server2CashierSyncTimeDataProvider.cs" />
     <Compile Include="Infrastructure\Server2CashierWriteDataProvider.cs" />
     <Compile Include="Infrastructure\Server2TerminalExchangeDataProvider.cs" />
     <Compile Include="Model\ServerModel.cs" />
