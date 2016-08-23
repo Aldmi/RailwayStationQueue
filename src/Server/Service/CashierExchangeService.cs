@@ -34,8 +34,6 @@ namespace Server.Service
 
 
 
-
-
         #region Methode
 
         public async Task ExchangeService(MasterSerialPort port, CancellationToken ct)
@@ -89,9 +87,9 @@ namespace Server.Service
             }
 
              //Отправка запроса синхронизации времени раз в час
-            if (_lastSyncLabel != DateTime.Now.Minute)
+            if (_lastSyncLabel != DateTime.Now.Hour)
             {
-                _lastSyncLabel = DateTime.Now.Minute;
+                _lastSyncLabel = DateTime.Now.Hour;
 
                 var syncTimeProvider = new Server2CashierSyncTimeDataProvider();
                 await port.DataExchangeAsync(_timeRespone, syncTimeProvider, ct);

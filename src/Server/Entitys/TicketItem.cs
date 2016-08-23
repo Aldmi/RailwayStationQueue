@@ -13,7 +13,8 @@ namespace Server.Entitys
 
         public override string ToString()
         {
-            return $" Дата поступления в обработку: {AddedTime}       Номер билет: {NumberElement}{Prefix}     Номер кассира:   {  Сashbox?.ToString() ?? "неизвестный кассир" } ";
+            var ticketName = Prefix + NumberElement.ToString("000");
+            return $" Дата поступления в обработку: {AddedTime}       Номер билета: {ticketName}      Номер кассира:   {  Сashbox?.ToString() ?? "неизвестный кассир" } ";
         }
     }
 }
