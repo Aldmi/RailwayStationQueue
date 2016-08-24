@@ -21,12 +21,26 @@ namespace Terminal.Service
 
         #region ctor
 
-        public PrintTicket()
+        public PrintTicket(string printerName)
         {
             var printersNames = PrinterSettings.InstalledPrinters;
-            string printerName = printersNames[1];
-            PrinterSettings ps = new PrinterSettings {PrinterName = printerName};
 
+           if(printersNames == null || printersNames.Count == 0)
+               throw new Exception("ПРИНТЕРЫ НЕ НАЙДЕННЫ В СИСТЕМЕ");
+
+            bool isFind = false;
+            for (int i = 0; i < printersNames.Count; i++)
+            {
+                if (printersNames[i] == printerName)
+                {
+                    isFind = true;
+                    break;
+                }
+            }
+            if(!isFind)
+                throw new Exception($"ПРИНТЕРА С ИМЕНЕМ {printerName} НЕ НАЙДЕННО В СИСТЕМЕ");
+
+            PrinterSettings ps = new PrinterSettings {PrinterName = printerName};
             _printDocument = new PrintDocument {PrinterSettings = ps};
             _printDocument.PrintPage += Pd_PrintPage;
         }

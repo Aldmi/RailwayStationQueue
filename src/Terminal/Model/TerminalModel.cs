@@ -83,8 +83,16 @@ namespace Terminal.Model
                 return;
             }
 
-            MasterTcpIp = new MasterTcpIp(xmlTerminal);
-            PrintTicket = new PrintTicket();                   //TODO: get printername
+            
+            try
+            {
+                MasterTcpIp = new MasterTcpIp(xmlTerminal);
+                PrintTicket = new PrintTicket("Microsoft Print to PDF");                   //TODO: get printername in XML file
+            }
+            catch (Exception ex)
+            {
+                ErrorString = ex.ToString();
+            }
         }
 
 

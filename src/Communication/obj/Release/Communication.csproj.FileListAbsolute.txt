@@ -5,3 +5,12 @@ D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\obj\Rele
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\obj\Release\Communication.csprojResolveAssemblyReference.cache
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\NModbus4.dll
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Communication\bin\Release\NModbus4.xml
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\Communication.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\Communication.pdb
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\Library.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\NModbus4.dll
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\Library.pdb
+D:\Git\RailwayStationQueue\src\Communication\bin\Release\NModbus4.xml
+D:\Git\RailwayStationQueue\src\Communication\obj\Release\Communication.csprojResolveAssemblyReference.cache
+D:\Git\RailwayStationQueue\src\Communication\obj\Release\Communication.dll
+D:\Git\RailwayStationQueue\src\Communication\obj\Release\Communication.pdb
