@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Width="800"
-        Height="600"
         AllowDrop="False"
         Focusable="False"
         WindowState="Maximized"
@@ -15,55 +13,51 @@
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="24" />
-            <Setter Property="Width" Value="700" />
-            <Setter Property="Height" Value="300" />
             <Setter Property="Background" Value="{Binding Path=ColorBtn, Mode=OneWay}" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="Margin" Value="10" />
+            <Setter Property="Margin" Value="1,20,1,30" />
             <Setter Property="IsEnabled" Value="{Binding Path=BtnEnable, Mode=OneWay}" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="MaxWidth" Value="1000" />
         </Style>
     </Window.Resources>
 
 
 
-    <Grid ShowGridLines="True">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.7*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0"
-                    Grid.Column="0"
-                    Background="Crimson">
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Margin="0,0,0,45"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Background="Crimson">
             <TextBlock MaxWidth="800"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
                        FontSize="70"
                        Foreground="White"
                        Padding="40"
                        Text="Какой билет вы хотите приобрести ?"
                        TextAlignment="Center"
                        TextWrapping="Wrap" />
-        </StackPanel>
+        </Grid>
 
 
+        <Button Name="BtnVilage"
+                Grid.Row="1"
+                Content="Электропоезд"
+                Style="{StaticResource ButtonStyle}" />
 
-        <StackPanel Grid.Row="1"
-                    Grid.Column="0"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center">
-
-            <Button Name="BtnVilage"
-                    Content="Электропоезд"
-                    Style="{StaticResource ButtonStyle}" />
-
-            <Button Name="BtnLongRoad"
-                    Content="Поезд дальнего следования"
-                    Style="{StaticResource ButtonStyle}" />
-
-        </StackPanel>
+        <Button Name="BtnLongRoad"
+                Grid.Row="2"
+                Content="Поезд дальнего следования"
+                Style="{StaticResource ButtonStyle}" />
     </Grid>
 </Window>

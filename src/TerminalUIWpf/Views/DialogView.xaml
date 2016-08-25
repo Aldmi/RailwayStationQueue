@@ -9,64 +9,60 @@
         WindowStyle="None"
         mc:Ignorable="d">
 
+
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="24" />
-            <Setter Property="Width" Value="700" />
-            <Setter Property="Height" Value="300" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Background" Value="SlateGray" />
             <Setter Property="Foreground" Value="White" />
-            <Setter Property="Margin" Value="10" />
+            <Setter Property="Margin" Value="1,20,1,30" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="MaxWidth" Value="1000" />
+        </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="60" />
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="TextAlignment" Value="Center" />
         </Style>
     </Window.Resources>
 
 
 
-    <Grid ShowGridLines="True">
 
+    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.5*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
 
         <TextBlock Name="TicketName"
                    Grid.Row="0"
-                   Margin="10"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Background="White"
-                   FontSize="60"
-                   Foreground="Black"
-                   Padding="5"
-                   TextAlignment="Center" />
+                   Style="{StaticResource TextBlockStyle}" />
 
         <TextBlock Name="CountPeople"
                    Grid.Row="1"
-                   Margin="10"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Background="White"
-                   FontSize="60"
-                   Foreground="Black"
-                   Padding="5"
-                   TextAlignment="Center" />
+                   Style="{StaticResource TextBlockStyle}" />
 
-        <StackPanel Grid.Row="2"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
 
-            <Button Name="BtnOk"
-                    Content="Принять"
-                    Style="{StaticResource ButtonStyle}" />
+        <Button Name="BtnOk"
+                Grid.Row="2"
+                Content="Принять"
+                Style="{StaticResource ButtonStyle}" />
 
-            <Button Name="BtnCancel"
-                    Content="Отменить"
-                    Style="{StaticResource ButtonStyle}" />
-
-        </StackPanel>
-
+        <Button Name="BtnCancel"
+                Grid.Row="3"
+                Content="Отменить"
+                Style="{StaticResource ButtonStyle}" />
     </Grid>
 </Window>
