@@ -6,4 +6,8 @@
 	   <TimeRespoune>7000</TimeRespoune>
 	   <NumberTryingTakeData>1</NumberTryingTakeData>
   </Server>
+  
+  <Printer>
+	   <Name>Microsoft Print to PDF</Name>
+  </Printer>
 </Root>

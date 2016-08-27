@@ -9,6 +9,7 @@ using Communication.TcpIp;
 using Library.Xml;
 using Terminal.Infrastructure;
 using Terminal.Service;
+using Terminal.Settings;
 
 
 namespace Terminal.Model
@@ -64,6 +65,7 @@ namespace Terminal.Model
         public void LoadSetting()
         {
             XmlMasterSettings xmlTerminal;
+            XmlPrinterSettings xmlPrinter;
             try
             {
                 var xmlFile = XmlWorker.LoadXmlFile("Settings", "Setting.xml");
@@ -71,6 +73,7 @@ namespace Terminal.Model
                     return;
 
                 xmlTerminal = XmlMasterSettings.LoadXmlSetting(xmlFile);
+                xmlPrinter = XmlPrinterSettings.LoadXmlSetting(xmlFile);
             }
             catch (FileNotFoundException ex)
             {
@@ -87,7 +90,7 @@ namespace Terminal.Model
             try
             {
                 MasterTcpIp = new MasterTcpIp(xmlTerminal);
-                PrintTicket = new PrintTicket("Microsoft Print to PDF");                   //TODO: get printername in XML file
+                PrintTicket = new PrintTicket(xmlPrinter); 
             }
             catch (Exception ex)
             {

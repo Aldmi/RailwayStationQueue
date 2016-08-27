@@ -45,6 +45,7 @@
     <Compile Include="Model\TerminalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\PrintTicket.cs" />
+    <Compile Include="Settings\XmlPrinterSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Communication\Communication.csproj">

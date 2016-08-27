@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
+using Terminal.Settings;
 
 namespace Terminal.Service
 {
@@ -43,6 +44,11 @@ namespace Terminal.Service
             PrinterSettings ps = new PrinterSettings {PrinterName = printerName};
             _printDocument = new PrintDocument {PrinterSettings = ps};
             _printDocument.PrintPage += Pd_PrintPage;
+        }
+
+
+        public PrintTicket(XmlPrinterSettings settings) : this(settings.PrinterName)
+        { 
         }
 
         #endregion
