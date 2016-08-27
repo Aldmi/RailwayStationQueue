@@ -189,7 +189,17 @@ namespace Server.Model
             MasterSerialPort = new MasterSerialPort(xmlSerial);
             CashierExchangeService = new CashierExchangeService(Сashiers, xmlSerial.TimeRespoune);
             MasterSerialPort.AddFunc(CashierExchangeService.ExchangeService);
-
+            MasterSerialPort.PropertyChanged += (o, e) =>
+            {
+                var port = o as MasterSerialPort;
+                if (port != null)
+                {
+                    if (e.PropertyName == "StatusString")
+                    {
+                        ErrorString = port.StatusString;
+                    }
+                }
+            };
 
 
             //DEBUG!!!!!!!!
