@@ -42,10 +42,10 @@ namespace Communication.Settings
         {
             XmlMasterSettings settServer =
                 new XmlMasterSettings(
-                    (string) xml.Element("Server").Element("IpAdress"),
-                    (string) xml.Element("Server").Element("IpPort"),
-                    (string) xml.Element("Server").Element("TimeRespoune"),
-                    (string) xml.Element("Server").Element("NumberTryingTakeData"));
+                    (string) xml.Element("Server")?.Element("IpAdress"),
+                    (string) xml.Element("Server")?.Element("IpPort"),
+                    (string) xml.Element("Server")?.Element("TimeRespoune"),
+                    (string) xml.Element("Server")?.Element("NumberTryingTakeData"));
 
             if(string.IsNullOrEmpty(settServer.IpAdress))
                 throw  new Exception("Ip адресс не указан");

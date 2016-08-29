@@ -187,13 +187,11 @@ namespace Communication.SerialPort
             }
             catch (OperationCanceledException)
             {
-                StatusString = "Операция обмена данными с портом отменена";
-                //ReConnect();
+                ReConnect();
             }
-            catch (TimeoutException ex)
+            catch (TimeoutException)
             {
-                StatusString = ex.ToString();
-                //ReOpen();                       //TODO: проблема!!!
+                ReOpen();                       //TODO: Если кто-то не отвечает, то сразу ReOpen порта?
             }
             IsRunDataExchange = false;
         }

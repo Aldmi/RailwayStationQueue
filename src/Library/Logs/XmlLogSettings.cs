@@ -36,8 +36,8 @@ namespace Library.Logs
         {
             XmlLogSettings settings =
                 new XmlLogSettings(
-                    (string) xml.Element("LogSetting").Element("PortionString"),
-                    (string) xml.Element("LogSetting").Element("CountPortion") );
+                    (string) xml?.Element("LogSetting")?.Element("PortionString"),
+                    (string) xml?.Element("LogSetting")?.Element("CountPortion") );
    
             return settings;
         }

@@ -47,12 +47,12 @@ namespace Communication.Settings
         {
             XmlSerialSettings settServer =
                 new XmlSerialSettings(
-                    (string) xml.Element("Server").Element("Serial").Element("Port"),
-                    (string) xml.Element("Server").Element("Serial").Element("BaudRate"),
-                    (string) xml.Element("Server").Element("Serial").Element("DataBits"),
-                    (string) xml.Element("Server").Element("Serial").Element("StopBits"),
-                    (string) xml.Element("Server").Element("Serial").Element("TimeRespon"),
-                    (string) xml.Element("Server").Element("Serial").Element("TimeCycleReConnect"));
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("Port"),
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("BaudRate"),
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("DataBits"),
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("StopBits"),
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("TimeRespon"),
+                    (string) xml.Element("Server")?.Element("Serial")?.Element("TimeCycleReConnect"));
 
             if(string.IsNullOrEmpty(settServer.Port))
                 throw  new Exception("Порт не указанн");

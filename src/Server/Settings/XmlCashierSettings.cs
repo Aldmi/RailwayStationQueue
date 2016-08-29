@@ -40,7 +40,7 @@ namespace Server.Settings
         public static List<XmlCashierSettings> LoadXmlSetting(XElement xml)
         {
             var sett =
-                from el in xml.Element("Cashiers").Elements("Cashier")
+                from el in xml?.Element("Cashiers")?.Elements("Cashier")
                 select new XmlCashierSettings(
                            (string)el.Attribute("Id"),
                            (string)el.Attribute("Port"),

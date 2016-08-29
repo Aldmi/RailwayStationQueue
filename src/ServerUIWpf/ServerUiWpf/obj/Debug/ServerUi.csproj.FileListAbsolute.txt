@@ -42,6 +42,7 @@ D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Caliburn.Micro.
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Castle.Core.dll
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Castle.Windsor.dll
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Communication.dll
+D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Itenso.Windows.Controls.ListViewLayout.dll
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Library.dll
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Server.dll
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\System.Windows.Interactivity.dll
@@ -68,4 +69,3 @@ D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.Proper
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.csproj.GenerateResource.Cache
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.exe
 D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\obj\Debug\ServerUi.pdb
-D:\Git\RailwayStationQueue\src\ServerUIWpf\ServerUiWpf\bin\Debug\Itenso.Windows.Controls.ListViewLayout.dll

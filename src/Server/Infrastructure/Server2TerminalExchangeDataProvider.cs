@@ -12,8 +12,8 @@ namespace Server.Infrastructure
     {
         #region prop
 
-        public int CountSetDataByte { get { return 4; } }
-        public int CountGetDataByte { get { return 15; } }
+        public int CountSetDataByte => 4;
+        public int CountGetDataByte => 15;
 
         private TerminalInData _inputData;
         public TerminalInData InputData                       //данные полученные от клиента. Т.е. номер очереди и действие

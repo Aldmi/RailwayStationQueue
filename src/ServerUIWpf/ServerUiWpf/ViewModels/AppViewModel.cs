@@ -89,7 +89,7 @@ namespace ServerUi.ViewModels
                     }
                     else                             //удалить элемент из списка
                     {
-                        var removeItem = TicketItems.FirstOrDefault((elem) => elem.CashierName.Contains(c.Id.ToString()));
+                        var removeItem = TicketItems.FirstOrDefault(elem => elem.CashierName.Contains(c.Id.ToString()));
                         TicketItems.Remove(removeItem);
                     }
                 }

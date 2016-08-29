@@ -2,14 +2,13 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using Communication.Annotations;
 using Communication.Interfaces;
 using Library.Library;
 
 namespace Server.Infrastructure
 {
-    public enum CashierHandling : byte { IsNotHandling, IsStartHandling, IsSuccessfulHandling, IsErrorHandling }
+    public enum CashierHandling : byte { IsNotHandling, IsStartHandling, IsSuccessfulHandling, IsErrorHandling, IsSuccessfulAndStartHandling, IsErrorAndStartHandling }
 
 
     /// <summary>
@@ -18,8 +17,8 @@ namespace Server.Infrastructure
     public class CashierOutData
     {
         public bool IsWork { get; set; }                     // Работа/Перерыв
-        public CashierHandling Handling { get;  set; }        // Активная кнопка обработки клиента
-        public string NameTicket{ get;  set; }                // Название билета (4 символа) 
+        public CashierHandling Handling { get; set; }        // Активная кнопка обработки клиента
+        public string NameTicket { get; set; }                // Название билета (4 символа) 
     }
 
 
@@ -68,7 +67,7 @@ namespace Server.Infrastructure
         /// </summary>
         public byte[] GetDataByte()
         {
-            byte[] buff= new byte[CountGetDataByte];
+            byte[] buff = new byte[CountGetDataByte];
 
             buff[0] = InputData;
             buff[1] = 0x03;
@@ -116,33 +115,44 @@ namespace Server.Infrastructure
                 return false;
             }
 
-            byte[] dataBuffer=null;
+            byte[] dataBuffer = null;
             if (data[0] == InputData &&
                 data[1] == 0x03 &&
                 data[2] == (NReadRegister * 2) &&
                 Crc16.CheckCrc(data))
             {
-                dataBuffer = data.Skip(3).Take((NReadRegister*2)).ToArray();
+                dataBuffer = data.Skip(3).Take((NReadRegister * 2)).ToArray();
             }
 
             if (dataBuffer != null)
             {
-                OutputData = new CashierOutData {IsWork = (dataBuffer[1] & 0x01) != 0x00, Handling = CashierHandling.IsNotHandling};
+                OutputData = new CashierOutData { IsWork = (dataBuffer[1] & 0x01) != 0x00, Handling = CashierHandling.IsNotHandling };
 
-
-                if ((dataBuffer[1] & 0x04) == 0x00)                                            // НЕ идет обработка пассажира
+                if ((dataBuffer[1] & 0x04) == 0x00)        // НЕ идет обработка пассажира
                 {
-                    if ((dataBuffer[1] & 0x02) != 0x00)                                        // приглашен новый пассажир.
+                    if ((dataBuffer[1] & 0x02) != 0x00)    
                     {
-                        OutputData.Handling = CashierHandling.IsStartHandling;
+                        OutputData.Handling = CashierHandling.IsStartHandling;                      // приглашен новый пассажир.
+
+                        if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x10) != 0x00)       //приглашен новый пассажир + Последний пассажир обработан и обработанн успешно                           
+                        {
+                            OutputData.Handling = CashierHandling.IsSuccessfulAndStartHandling;
+                        }
+                        else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x20) != 0x00)  //приглашен новый пассажир + Последний пассажир обработан и обработанн НЕ успешно                         
+                        {
+                            OutputData.Handling = CashierHandling.IsErrorAndStartHandling;
+                        }
                     }
-                    else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x10) != 0x00) //Последний пассажир обработан и обработанн успешно
+                    else
                     {
-                        OutputData.Handling = CashierHandling.IsSuccessfulHandling;
-                    }
-                    else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x20) != 0x00) //Последний пассажир обработан и обработанн НЕ успешно
-                    {
-                        OutputData.Handling = CashierHandling.IsErrorHandling;
+                        if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x10) != 0x00)        //Последний пассажир обработан и обработанн успешно                           
+                        {
+                            OutputData.Handling = CashierHandling.IsSuccessfulHandling;
+                        }
+                        else if ((dataBuffer[1] & 0x08) != 0x00 && (dataBuffer[1] & 0x20) != 0x00)  //Последний пассажир обработан и обработанн НЕ успешно                         
+                        {
+                            OutputData.Handling = CashierHandling.IsErrorHandling;
+                        }
                     }
                 }
 

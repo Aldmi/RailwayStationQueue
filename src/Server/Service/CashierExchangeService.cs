@@ -51,28 +51,51 @@ namespace Server.Service
                     TicketItem item;
                     var cashierInfo = readProvider.OutputData;
 
-                    if(!cashierInfo.IsWork)
+                    if (!cashierInfo.IsWork)
                         continue;
 
                     switch (cashierInfo.Handling)
                     {
-                        case CashierHandling.IsStartHandling: 
+                        case CashierHandling.IsSuccessfulHandling:
+                            cashier.SuccessfulHandling();
+                            break;
+
+                        case CashierHandling.IsErrorHandling:
+                            cashier.ErrorHandling();
+                            break;
+
+                        case CashierHandling.IsStartHandling:
                             item = cashier.StartHandling();
                             var writeProvider = new Server2CashierWriteDataProvider { InputData = item };
                             await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
-
                             if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
                             {
                                 cashier.SuccessfulStartHandling();
                             }
                             break;
 
-                        case CashierHandling.IsSuccessfulHandling:
+                        case CashierHandling.IsSuccessfulAndStartHandling:
                             cashier.SuccessfulHandling();
+
+                            item = cashier.StartHandling();
+                            writeProvider = new Server2CashierWriteDataProvider { InputData = item };
+                            await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
+                            if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
+                            {
+                                cashier.SuccessfulStartHandling();
+                            }
                             break;
 
-                        case CashierHandling.IsErrorHandling: 
+                        case CashierHandling.IsErrorAndStartHandling:
                             cashier.ErrorHandling();
+
+                            item = cashier.StartHandling();
+                            writeProvider = new Server2CashierWriteDataProvider { InputData = item };
+                            await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
+                            if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
+                            {
+                                cashier.SuccessfulStartHandling();
+                            }
                             break;
 
                         default:
@@ -80,13 +103,9 @@ namespace Server.Service
                             break;
                     }
                 }
-                else
-                {
-                    ;
-                }
             }
 
-             //Отправка запроса синхронизации времени раз в час
+            //Отправка запроса синхронизации времени раз в час
             if (_lastSyncLabel != DateTime.Now.Hour)
             {
                 _lastSyncLabel = DateTime.Now.Hour;

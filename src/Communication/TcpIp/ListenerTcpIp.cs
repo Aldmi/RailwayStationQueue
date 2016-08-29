@@ -140,7 +140,7 @@ namespace Communication.TcpIp
                     {
                         await connectionTask;
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // log
                     }

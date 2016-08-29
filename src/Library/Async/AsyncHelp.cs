@@ -7,7 +7,7 @@ namespace Library.Async
     public class AsyncHelp
     {
         /// <summary>
-        /// асинхронная задача которая завершается только присрабатывани токена отмены
+        /// асинхронная задача которая завершается только при срабатывани токена отмены
         /// </summary>
         public static async Task WaitCancellation(CancellationToken ct)
         {
@@ -16,6 +16,10 @@ namespace Library.Async
                 await tcs.Task;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
         public static async Task<T> WithTimeout<T>(Task<T> task, int time, CancellationToken ct)
         {
             Task delayTask = Task.Delay(time, ct);

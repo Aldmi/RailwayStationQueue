@@ -31,7 +31,7 @@ namespace Communication.Settings
         {
             XmlListenerSettings settListener =
                 new XmlListenerSettings(
-                    (string) xml.Element("Server").Element("Listener").Element("Port"));
+                    (string) xml.Element("Server")?.Element("Listener")?.Element("Port"));
                  
             return settListener;
         }

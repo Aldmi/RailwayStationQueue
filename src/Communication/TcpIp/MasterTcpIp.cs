@@ -187,7 +187,7 @@ namespace Communication.TcpIp
             {
                 if (_terminalClient != null && _terminalNetStream != null && _terminalClient.Client != null && _terminalClient.Client.Connected)
                 {
-                    await _terminalNetStream.WriteAsync(buffer, 0, buffer.Count());
+                    await _terminalNetStream.WriteAsync(buffer, 0, buffer.Length);
                     return true;
                 }
             }
@@ -241,7 +241,7 @@ namespace Communication.TcpIp
             if (_terminalNetStream != null)
             {
                 _terminalNetStream.Close();
-                StatusString = string.Format("Сетевой поток закрыт ...");
+                StatusString = "Сетевой поток закрыт ...";
             }
 
             _terminalClient?.Client?.Close();

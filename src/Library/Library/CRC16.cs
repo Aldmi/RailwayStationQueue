@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Library.Library
 {
@@ -14,7 +11,7 @@ namespace Library.Library
 
             for (int pos = 0; pos < len; pos++)
             {
-                crc ^= (UInt16)buf[pos];
+                crc ^= buf[pos];
 
                 for (int i = 8; i != 0; i--)
                 {
