@@ -72,7 +72,7 @@ namespace Server.Model
 
         #region Methods
 
-        public void LoadSetting()
+        public async void LoadSetting()
         {
             //ЗАГРУЗКА НАСТРОЕК----------------------------------------------------------------
             XmlListenerSettings xmlListener;
@@ -104,6 +104,15 @@ namespace Server.Model
 
             //СОЗДАНИЕ ЛОГА--------------------------------------------------------------------------
             LogTicket = new Log("TicketLog.txt", xmlLog);
+
+            await LogTicket.Add("11111");//DEBUG
+            await LogTicket.Add("22222");//DEBUG
+            await LogTicket.Add("33333");//DEBUG
+            await LogTicket.Add("44444");//DEBUG
+            await LogTicket.Add("55555");//DEBUG
+            await LogTicket.Add("66666");//DEBUG
+            await LogTicket.Add("77777");//DEBUG
+            await LogTicket.Add("88888");//DEBUG
 
 
             //СОЗДАНИЕ СЛУШАТЕЛЯ ДЛЯ ТЕРМИНАЛОВ-------------------------------------------------------

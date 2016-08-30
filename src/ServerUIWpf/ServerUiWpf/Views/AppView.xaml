@@ -4,8 +4,6 @@
         xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Width="800"
-        Height="600"
         AllowDrop="False"
         Focusable="False"
         WindowState="Maximized"
@@ -15,7 +13,7 @@
 
     <Window.Resources>
         <Style x:Key="TextBoxStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="55" />
+            <Setter Property="FontSize" Value="80" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="Margin" Value="5" />
@@ -35,8 +33,9 @@
             <!--<Setter Property="OverridesDefaultStyle" Value="True" />-->
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontSize" Value="85" />
+            <Setter Property="FontSize" Value="105" />
             <Setter Property="Background" Value="Crimson" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
         </Style>
     </Window.Resources>
@@ -46,7 +45,6 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <ListView Name="TicketItems"
@@ -109,19 +107,5 @@
             </ListView.View>
 
         </ListView>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Name="Add"
-                    Width="100"
-                    Height="100"
-                    Margin="5"
-                    Content="Add" />
-
-            <Button Name="Remove"
-                    Width="100"
-                    Height="100"
-                    Margin="5"
-                    Content="Remove" />
-        </StackPanel>
     </Grid>
 </Window>

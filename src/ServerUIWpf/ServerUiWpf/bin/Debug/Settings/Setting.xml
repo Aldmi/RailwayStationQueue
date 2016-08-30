@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
   <LogSetting>
-    <PortionString>5</PortionString>
-	<CountPortion>10</CountPortion>
+    <PortionString>2</PortionString>
+	<CountPortion>2</CountPortion>
   </LogSetting>
 
   <Server>

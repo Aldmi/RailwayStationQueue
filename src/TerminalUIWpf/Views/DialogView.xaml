@@ -12,7 +12,7 @@
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontSize" Value="70" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Background" Value="SlateGray" />
             <Setter Property="Foreground" Value="White" />
@@ -23,13 +23,13 @@
         </Style>
 
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="60" />
+            <Setter Property="FontSize" Value="110" />
             <Setter Property="Background" Value="White" />
             <Setter Property="Foreground" Value="Black" />
-            <Setter Property="Margin" Value="5" />
+            <Setter Property="Margin" Value="10" />
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="HorizontalAlignment" Value="Center" />
-            <Setter Property="Padding" Value="5" />
+            <Setter Property="Padding" Value="10" />
             <Setter Property="TextAlignment" Value="Center" />
         </Style>
     </Window.Resources>
@@ -39,8 +39,8 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.7*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>

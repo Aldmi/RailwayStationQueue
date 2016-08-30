@@ -12,7 +12,7 @@
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontSize" Value="70" />
             <Setter Property="Background" Value="{Binding Path=ColorBtn, Mode=OneWay}" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="White" />
@@ -38,10 +38,10 @@
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
               Background="Crimson">
-            <TextBlock MaxWidth="800"
+            <TextBlock MaxWidth="1200"
                        HorizontalAlignment="Stretch"
-                       VerticalAlignment="Center"
-                       FontSize="70"
+                       VerticalAlignment="Stretch"
+                       FontSize="110"
                        Foreground="White"
                        Padding="40"
                        Text="Какой билет вы хотите приобрести ?"
