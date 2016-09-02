@@ -74,22 +74,22 @@ namespace ServerUi.ViewModels
 
         private async void Cashier_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var c = sender as Сashier;
-            if (c != null)
+            var сashier = sender as Сashier;
+            if (сashier != null)
             {
                 if (e.PropertyName == "CurrentTicket")
                 {
-                    if (c.CurrentTicket != null)      //добавить элемент к списку
+                    if (сashier.CurrentTicket != null)      //добавить элемент к списку
                     {
 
-                        TicketItems.Add(new TicketItem { CashierName = "Касса " + c.CurrentTicket.Сashbox,
-                                                         TicketName =  $"Талон {c.CurrentTicket.Prefix}{c.CurrentTicket.NumberElement.ToString("000")}" });
-                        var task = _model.LogTicket?.Add(c.CurrentTicket.ToString());
+                        TicketItems.Add(new TicketItem { CashierName = "Касса " + сashier.CurrentTicket.Сashbox,
+                                                         TicketName =  $"Талон {сashier.CurrentTicket.Prefix}{сashier.CurrentTicket.NumberElement.ToString("000")}" });
+                        var task = _model.LogTicket?.Add(сashier.CurrentTicket.ToString());
                         if (task != null) await task;
                     }
                     else                             //удалить элемент из списка
                     {
-                        var removeItem = TicketItems.FirstOrDefault(elem => elem.CashierName.Contains(c.Id.ToString()));
+                        var removeItem = TicketItems.FirstOrDefault(elem => elem.CashierName.Contains(сashier.Id.ToString()));
                         TicketItems.Remove(removeItem);
                     }
                 }

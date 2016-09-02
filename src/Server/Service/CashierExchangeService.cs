@@ -15,7 +15,6 @@ namespace Server.Service
         private readonly List<Сashier> _cashiers;
         private readonly ushort _timeRespone;
 
-
         private int _lastSyncLabel;
 
         #endregion
@@ -44,7 +43,7 @@ namespace Server.Service
             foreach (var cashier in _cashiers)              //Запуск опроса кассиров
             {
                 var readProvider = new Server2CashierReadDataProvider { InputData = cashier.Id };
-                await port.DataExchangeAsync(_timeRespone, readProvider, ct);
+                await port.DataExchangeAsync(_timeRespone, readProvider, ct);                        //TODO: можно добавить кассирам свойство IsConnect. И выставлять его как резульат обмена.
 
                 if (readProvider.IsOutDataValid)
                 {

@@ -166,14 +166,17 @@ namespace Communication.SerialPort
         }
 
 
-
-        public async Task DataExchangeAsync(int timeRespoune, IExchangeDataProviderBase dataProvider, CancellationToken ct)
+        /// <summary>
+        /// Функция обмена по порту. Запрос-ожидание-ответ.
+        /// Возвращает true если результат обмена успешен.
+        /// </summary>
+        public async Task<bool> DataExchangeAsync(int timeRespoune, IExchangeDataProviderBase dataProvider, CancellationToken ct)
         {
             if (!IsConnect)
-                return;
+                return false;
 
             if (dataProvider == null)
-                return;
+                return false;
 
             IsRunDataExchange = true;
             try
@@ -188,12 +191,16 @@ namespace Communication.SerialPort
             catch (OperationCanceledException)
             {
                 ReConnect();
+                return false;
             }
             catch (TimeoutException)
             {
                 ReOpen();                       //TODO: Если кто-то не отвечает, то сразу ReOpen порта?
+                return false;
             }
             IsRunDataExchange = false;
+
+            return true;
         }
 
 
@@ -231,7 +238,7 @@ namespace Communication.SerialPort
 
         /// <summary>
         /// Функция посылает запрос в порт, и как только в буфер порта приходят данные сразу же проверяет их кол-во.
-        /// Как только накопится нужное кол-во байт сразу же будет возвращен ответ не дожедаясь вермени readTimeout.
+        /// Как только накопится нужное кол-во байт сразу же будет возвращен ответ не дожедаясь времени readTimeout.
         /// Таким образом период опроса не фиксированный, а определяется скоростью ответа slave устройства.
         /// </summary>
         public async Task<byte[]> RequestAndRespawnInstantlyAsync(byte[] writeBuffer, int nBytesRead, int readTimeout, CancellationToken ct)
