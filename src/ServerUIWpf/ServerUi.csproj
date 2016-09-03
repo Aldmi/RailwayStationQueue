@@ -138,15 +138,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Communication\Communication.csproj">
+    <ProjectReference Include="..\Communication\Communication.csproj">
       <Project>{dea394e0-f62e-459b-98cf-3ec8da2a90a3}</Project>
       <Name>Communication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Library\Library.csproj">
+    <ProjectReference Include="..\Library\Library.csproj">
       <Project>{87b6f9ef-6a0d-4daf-9df0-718036b1c8e4}</Project>
       <Name>Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Server\Server.csproj">
+    <ProjectReference Include="..\Server\Server.csproj">
       <Project>{edd20fd4-5321-4660-af95-379919c7c913}</Project>
       <Name>Server</Name>
     </ProjectReference>
