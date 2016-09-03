@@ -54,6 +54,7 @@ namespace Server.Infrastructure
         /// байт[9]= CRC Мл.
         /// байт[10]= CRC Ст.
         /// </summary>
+        /// 
         public byte[] GetDataByte()
         {
             if (InputData == null)
@@ -75,7 +76,7 @@ namespace Server.Infrastructure
             buff[6] = (NWriteRegister * 2);
 
             ushort formatNameTicket = (ushort)(InputData.NumberElement & 0x3FF);
-            var prefix = (ushort)(InputData.Prefix == "П" ? 0X0000 : 0x0001) & 0x3F;
+            var prefix = (ushort)(InputData.Prefix == "A" ? 0X0000 : 0x0001) & 0x3F;
             formatNameTicket |= (ushort)(prefix << 10);
 
 

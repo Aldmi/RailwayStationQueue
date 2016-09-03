@@ -46,7 +46,7 @@ namespace Server.Service
 
         public TicketItem Create(ushort countElement)
         {
-            if (++_ticketNumber > MaxTicketNumber)
+            if (++_ticketNumber >= MaxTicketNumber)
                 _ticketNumber = 0;
 
             if (DateTime.Now.Day != _currentDay)           //Обнуление номера билета каждые сутки.

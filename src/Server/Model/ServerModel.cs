@@ -23,8 +23,8 @@ namespace Server.Model
     {
         #region prop
 
-        public TicketFactory TicketFactoryVilage { get; } = new TicketFactory("П");
-        public TicketFactory TicketFactoryLong { get; } = new TicketFactory("Э");
+        public TicketFactory TicketFactoryVilage { get; } = new TicketFactory("A");
+        public TicketFactory TicketFactoryLong { get; } = new TicketFactory("B");
 
         public Queue<TicketItem> QueueVilage { get; set; } = new Queue<TicketItem>();
         public Queue<TicketItem> QueueLong { get; set; } = new Queue<TicketItem>();
@@ -180,7 +180,7 @@ namespace Server.Model
             //СОЗДАНИЕ КАССИРОВ-----------------------------------------------------------------------
             foreach (var xmlCash in xmlCashier)
             {
-                var casher = new Сashier(xmlCash.Id, (xmlCash.Prefix == "П") ? QueueVilage : QueueLong, xmlCash.MaxCountTryHanding);
+                var casher = new Сashier(xmlCash.Id, (xmlCash.Prefix == "A") ? QueueVilage : QueueLong, xmlCash.MaxCountTryHanding);
                 Сashiers.Add(casher);
             }
 

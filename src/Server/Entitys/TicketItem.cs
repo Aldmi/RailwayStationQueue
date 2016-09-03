@@ -4,7 +4,7 @@ namespace Server.Entitys
 {
     public class TicketItem
     {
-        public string Prefix { get; set; }          // строковый префикс элемента (П или Э)
+        public string Prefix { get; set; }          // строковый префикс элемента (A или B)
         public uint NumberElement { get; set; }     // номер в очереди на момент добавления
         public ushort CountElement { get; set; }    // кол-во клиентов в очереди на момент добавления
         public DateTime AddedTime{ get; set; }      // дата добавления
