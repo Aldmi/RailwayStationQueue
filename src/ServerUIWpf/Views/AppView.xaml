@@ -33,7 +33,7 @@
             <!--<Setter Property="OverridesDefaultStyle" Value="True" />-->
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontSize" Value="105" />
+            <Setter Property="FontSize" Value="115" />
             <Setter Property="Background" Value="Crimson" />
             <Setter Property="Padding" Value="10" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />

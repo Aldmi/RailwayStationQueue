@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root>
   <Server>
-	   <IpAdress>192.168.1.40</IpAdress>
+	   <IpAdress>192.168.0.30</IpAdress>
 	   <IpPort>50000</IpPort>
-	   <TimeRespoune>7000</TimeRespoune>
+	   <TimeRespoune>1000</TimeRespoune>
 	   <NumberTryingTakeData>1</NumberTryingTakeData>
   </Server>
   
   <Printer>
-	   <Name>Microsoft Print to PDF</Name>
+	   <Name>PDFCreator</Name>
   </Printer>
 </Root>

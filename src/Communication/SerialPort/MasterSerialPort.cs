@@ -19,10 +19,14 @@ namespace Communication.SerialPort
     {
         #region fields
 
+        private const uint MaxCountFaildRespowne = 20;
+        private uint _countFaildRespowne;
+
         private string _statusString;
         private bool _isConnect;
         private bool _isRunDataExchange;
         private readonly int _timeCycleReConnect;
+
 
         private readonly System.IO.Ports.SerialPort _port; //COM порт
 
@@ -186,16 +190,21 @@ namespace Communication.SerialPort
                 {
                     var readBuff = await RequestAndRespawnInstantlyAsync(writeBuffer, dataProvider.CountSetDataByte, timeRespoune,  ct);
                     dataProvider.SetDataByte(readBuff);
+                    _countFaildRespowne = 0;
                 }
+                
             }
             catch (OperationCanceledException)
             {
-                ReConnect();
                 return false;
             }
             catch (TimeoutException)
             {
-                ReOpen();                       //TODO: Если кто-то не отвечает, то сразу ReOpen порта?
+                if (_countFaildRespowne++ > MaxCountFaildRespowne)
+                {
+                    ReConnect();
+                    _countFaildRespowne = 0;
+                }
                 return false;
             }
             IsRunDataExchange = false;

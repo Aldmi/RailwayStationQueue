@@ -13,3 +13,14 @@ D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Server\obj\Release\Ser
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Server\obj\Release\Server.pdb
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Server\bin\Release\NModbus4.dll
 D:\Dropbox\C#\Project C#\Scada Belovo\RailwayStationQueue\Server\bin\Release\NModbus4.xml
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Server.dll
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Server.pdb
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Communication.dll
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Library.dll
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Terminal.dll
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Communication.pdb
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Library.pdb
+D:\Git\RailwayStationQueue\src\Server\bin\Release\Terminal.pdb
+D:\Git\RailwayStationQueue\src\Server\obj\Release\Server.csprojResolveAssemblyReference.cache
+D:\Git\RailwayStationQueue\src\Server\obj\Release\Server.dll
+D:\Git\RailwayStationQueue\src\Server\obj\Release\Server.pdb

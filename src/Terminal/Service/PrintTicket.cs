@@ -63,23 +63,23 @@ namespace Terminal.Service
             //ПЕЧАТЬ ЛОГОТИПА
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Picture", "RZD_logo.jpg");
             if (File.Exists(filePath))
-                e.Graphics.DrawImage(Image.FromFile(filePath), 265, 15);
+                e.Graphics.DrawImage(Image.FromFile(filePath), 5, 5);
 
-            e.Graphics.DrawLine(new Pen(Color.Black), 20, 168, 805, 168);
+            e.Graphics.DrawLine(new Pen(Color.Black), 5, 130, 245, 130);
 
             //ПЕЧАТЬ ТЕКСТА
             string printText = $"{_ticketName}\r\n";
-            Font printFont = new Font("Times New Roman", 30, FontStyle.Regular, GraphicsUnit.Millimeter);
-            e.Graphics.DrawString(printText, printFont, Brushes.Black, 270, 225);
+            Font printFont = new Font("Times New Roman", 20, FontStyle.Regular, GraphicsUnit.Millimeter);
+            e.Graphics.DrawString(printText, printFont, Brushes.Black, 9, 150);
 
             printText =$"перед вами {_countPeople} чел.\r\n";
-            printFont = new Font("Times New Roman", 12, FontStyle.Regular, GraphicsUnit.Millimeter);
-            e.Graphics.DrawString(printText, printFont, Brushes.Black, 218, 375);
+            printFont = new Font("Times New Roman", 7, FontStyle.Regular, GraphicsUnit.Millimeter);
+            e.Graphics.DrawString(printText, printFont, Brushes.Black, 9, 260);
 
-            printText = "\r\n \r\n \r\n";
-            printText += $"{_dateAdded.ToString("T")}                                                               {_dateAdded.ToString("d")}";
-            printFont = new Font("Times New Roman", 8, FontStyle.Regular, GraphicsUnit.Millimeter);
-            e.Graphics.DrawString(printText, printFont, Brushes.Black, 30, 500);
+            printText = "\r\n \r\n ";
+            printText += $"{_dateAdded.ToString("T")}         {_dateAdded.ToString("d")}";
+            printFont = new Font("Times New Roman", 5, FontStyle.Regular, GraphicsUnit.Millimeter);
+            e.Graphics.DrawString(printText, printFont, Brushes.Black, 5, 300);
         }
 
         #endregion

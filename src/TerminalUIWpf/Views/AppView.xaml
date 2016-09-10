@@ -12,7 +12,7 @@
 
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="70" />
+            <Setter Property="FontSize" Value="65" />
             <Setter Property="Background" Value="{Binding Path=ColorBtn, Mode=OneWay}" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Foreground" Value="White" />
@@ -20,6 +20,28 @@
             <Setter Property="IsEnabled" Value="{Binding Path=BtnEnable, Mode=OneWay}" />
             <Setter Property="VerticalAlignment" Value="Stretch" />
             <Setter Property="MaxWidth" Value="1000" />
+        </Style>
+
+        <Style x:Key="TextBlockMainStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Visibility" Value="Visible" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="TextBlockErrorStyle" TargetType="{x:Type TextBlock}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Visibility" Value="Visible" />
+                </Trigger>
+            </Style.Triggers>
         </Style>
     </Window.Resources>
 
@@ -38,15 +60,28 @@
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
               Background="Crimson">
+            
             <TextBlock MaxWidth="1200"
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Stretch"
                        FontSize="110"
+                       Style="{StaticResource TextBlockMainStyle}"
                        Foreground="White"
-                       Padding="40"
+                       Padding="5,50,5,5"              
                        Text="Какой билет вы хотите приобрести ?"
                        TextAlignment="Center"
-                       TextWrapping="Wrap" />
+                       TextWrapping="Wrap" IsEnabled="{Binding Path=IsConnect, Mode=OneWay}" />
+
+            <TextBlock MaxWidth="1200"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch"
+                       FontSize="70"
+                        Style="{StaticResource TextBlockErrorStyle}"
+                       Foreground="White"
+                       Padding="5,90,5,5"
+                       Text="ОТСУТСТВУЕТ СВЯЗЬ. Обратитесь пожалуйста к администратору."
+                       TextAlignment="Center"
+                       TextWrapping="Wrap" IsEnabled="{Binding Path=IsConnect, Mode=OneWay}"   />
         </Grid>
 
 

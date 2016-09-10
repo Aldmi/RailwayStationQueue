@@ -14,7 +14,7 @@ namespace TerminalUIWpf.ViewModels
         #region field
 
         private readonly IWindowManager _windowManager;
-        
+
         private readonly TerminalModel _model;
         private readonly Task _mainTask;
 
@@ -60,7 +60,7 @@ namespace TerminalUIWpf.ViewModels
         }
 
 
-        private bool _btnEnable= true;
+        private bool _btnEnable = true;
         public bool BtnEnable
         {
             get { return _btnEnable; }
@@ -68,6 +68,18 @@ namespace TerminalUIWpf.ViewModels
             {
                 _btnEnable = value;
                 NotifyOfPropertyChange(() => BtnEnable);
+            }
+        }
+
+
+        private bool _isConnect = true;
+        public bool IsConnect
+        {
+            get { return _isConnect; }
+            set
+            {
+                _isConnect = value;
+                NotifyOfPropertyChange(() => IsConnect);
             }
         }
 
@@ -85,7 +97,8 @@ namespace TerminalUIWpf.ViewModels
             {
                 if (e.PropertyName == "IsConnect")
                 {
-                   ColorBtn = master.IsConnect ? Brushes.SlateGray : Brushes.Magenta;
+                    IsConnect = master.IsConnect;
+                    ColorBtn = master.IsConnect ? Brushes.SlateGray : ColorBtn = Brushes.Magenta;
                 }
                 else if (e.PropertyName == "IsRunDataExchange")
                 {
@@ -102,7 +115,7 @@ namespace TerminalUIWpf.ViewModels
             {
                 if (e.PropertyName == "ErrorString")
                 {
-                   MessageBox.Show(terminal.ErrorString); //TODO: как вызвать MessageBox
+                    MessageBox.Show(terminal.ErrorString); //TODO: как вызвать MessageBox
                 }
             }
         }
@@ -110,7 +123,7 @@ namespace TerminalUIWpf.ViewModels
 
         private bool _model_ConfirmationAdded(string ticketName, string countPeople)
         {
-            var dialog = new DialogViewModel { CountPeople = $"Впереди вас {countPeople} человек", TicketName = $"Номер вашего билета {ticketName}"};
+            var dialog = new DialogViewModel { CountPeople = $"Впереди вас {countPeople} человек", TicketName = $"Номер вашего билета {ticketName}" };
             _windowManager.ShowDialog(dialog);
             return dialog.Act == Act.Ok;
         }

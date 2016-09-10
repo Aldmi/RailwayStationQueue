@@ -11,7 +11,7 @@ namespace Server.Service
         private readonly string _ticketPrefix;
         private uint _ticketNumber;
         private int _currentDay;
-
+    
         #endregion
 
 
@@ -32,7 +32,7 @@ namespace Server.Service
 
 
 
-        #region prop
+        #region prop      
 
         public uint GetCurrentTicketNumber
         {

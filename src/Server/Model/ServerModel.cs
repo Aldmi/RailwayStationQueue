@@ -72,7 +72,7 @@ namespace Server.Model
 
         #region Methods
 
-        public async void LoadSetting()
+        public void LoadSetting()
         {
             //ЗАГРУЗКА НАСТРОЕК----------------------------------------------------------------
             XmlListenerSettings xmlListener;
@@ -201,15 +201,6 @@ namespace Server.Model
                 }
             };
 
-
-            //DEBUG!!!!!!!!
-            //QueueVilage.Enqueue(TicketFactoryVilage.Create(10));
-            //QueueVilage.Enqueue(TicketFactoryVilage.Create(20));
-            //QueueVilage.Enqueue(TicketFactoryVilage.Create(30));
-
-            //QueueLong.Enqueue(TicketFactoryLong.Create(55));
-            //QueueLong.Enqueue(TicketFactoryLong.Create(66));
-            //QueueLong.Enqueue(TicketFactoryLong.Create(77));
         }
 
 
