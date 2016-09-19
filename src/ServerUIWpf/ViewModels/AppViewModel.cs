@@ -31,9 +31,9 @@ namespace ServerUi.ViewModels
             _model.PropertyChanged += _model_PropertyChanged;
 
             _model.LoadSetting();
-            foreach (var cashier in _model.Сashiers)
+            foreach (var devCashier in _model.DeviceCashiers)
             {
-                cashier.PropertyChanged += Cashier_PropertyChanged;
+             devCashier.Cashier.PropertyChanged += Cashier_PropertyChanged;
             }
 
             if (_model.Listener != null)

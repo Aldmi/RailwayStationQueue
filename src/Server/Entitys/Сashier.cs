@@ -110,6 +110,15 @@ namespace Server.Entitys
             return CurrentTicket;
         }
 
+        public void DisconectHandling()
+        {
+            if (CurrentTicket != null)
+            {
+                _queueTicket.Enqueue(CurrentTicket);
+                CurrentTicket = null;
+            }
+        }
+
         #endregion
 
 

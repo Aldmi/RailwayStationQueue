@@ -35,7 +35,7 @@ namespace Server.Model
         public IExchangeDataProvider<TerminalInData, TerminalOutData> ProviderTerminal { get; set; }
 
         public MasterSerialPort MasterSerialPort { get; set; }
-        public List<Сashier> Сashiers { get; set; } = new List<Сashier>();
+        public List<DeviceCashier> DeviceCashiers { get; set; } = new List<DeviceCashier>();
         public CashierExchangeService CashierExchangeService { get; set; }
 
         public List<Task> BackGroundTasks { get; set; } = new List<Task>();
@@ -177,17 +177,17 @@ namespace Server.Model
             };
 
 
-            //СОЗДАНИЕ КАССИРОВ-----------------------------------------------------------------------
+            //СОЗДАНИЕ КАССИРОВ------------------------------------------------------------------------------------------------
             foreach (var xmlCash in xmlCashier)
             {
                 var casher = new Сashier(xmlCash.Id, (xmlCash.Prefix == "A") ? QueueVilage : QueueLong, xmlCash.MaxCountTryHanding);
-                Сashiers.Add(casher);
+                DeviceCashiers.Add(new DeviceCashier(casher));
             }
 
 
             //СОЗДАНИЕ ПОСЛЕД. ПОРТА ДЛЯ ОПРОСА КАССИРОВ-----------------------------------------------------------------------
             MasterSerialPort = new MasterSerialPort(xmlSerial);
-            CashierExchangeService = new CashierExchangeService(Сashiers, xmlSerial.TimeRespoune);
+            CashierExchangeService = new CashierExchangeService(DeviceCashiers, xmlSerial.TimeRespoune);
             MasterSerialPort.AddFunc(CashierExchangeService.ExchangeService);
             MasterSerialPort.PropertyChanged += (o, e) =>
             {

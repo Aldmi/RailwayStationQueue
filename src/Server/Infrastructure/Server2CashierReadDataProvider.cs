@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Communication.Annotations;
 using Communication.Interfaces;
 using Library.Library;
+using Server.Entitys;
 
 namespace Server.Infrastructure
 {

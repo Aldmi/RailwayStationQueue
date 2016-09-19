@@ -12,7 +12,7 @@ namespace Server.Service
     {
         #region field
 
-        private readonly List<Сashier> _cashiers;
+        private readonly List<DeviceCashier> _deviceCashiers;
         private readonly ushort _timeRespone;
 
         private int _lastSyncLabel;
@@ -23,9 +23,9 @@ namespace Server.Service
 
         #region ctor
 
-        public CashierExchangeService(List<Сashier> cashiers, ushort timeRespone)
+        public CashierExchangeService(List<DeviceCashier> deviceCashiers, ushort timeRespone)
         {
-            _cashiers = cashiers;
+            _deviceCashiers = deviceCashiers;
             _timeRespone = timeRespone;
         }
 
@@ -40,10 +40,16 @@ namespace Server.Service
             if (port == null)
                 return;
 
-            foreach (var cashier in _cashiers)              //Запуск опроса кассиров
+            foreach (var devCashier in _deviceCashiers)              //Запуск опроса кассиров
             {
-                var readProvider = new Server2CashierReadDataProvider { InputData = cashier.Id };
-                await port.DataExchangeAsync(_timeRespone, readProvider, ct);                        //TODO: можно добавить кассирам свойство IsConnect. И выставлять его как резульат обмена.
+                var readProvider= new Server2CashierReadDataProvider { InputData = devCashier.Cashier.Id };
+                devCashier.DataExchangeSuccess= await port.DataExchangeAsync(_timeRespone, readProvider, ct);                        //TODO: можно добавить кассирам свойство IsConnect. И выставлять его как резульат обмена.
+
+                if (!devCashier.IsConnect)
+                {
+                 devCashier.Cashier.DisconectHandling();
+                 continue;
+                }
 
                 if (readProvider.IsOutDataValid)
                 {
@@ -56,44 +62,44 @@ namespace Server.Service
                     switch (cashierInfo.Handling)
                     {
                         case CashierHandling.IsSuccessfulHandling:
-                            cashier.SuccessfulHandling();
+                            devCashier.Cashier.SuccessfulHandling();
                             break;
 
                         case CashierHandling.IsErrorHandling:
-                            cashier.ErrorHandling();
+                            devCashier.Cashier.ErrorHandling();
                             break;
 
                         case CashierHandling.IsStartHandling:
-                            item = cashier.StartHandling();
+                            item = devCashier.Cashier.StartHandling();
                             var writeProvider = new Server2CashierWriteDataProvider { InputData = item };
                             await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
                             if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
                             {
-                                cashier.SuccessfulStartHandling();
+                             devCashier.Cashier.SuccessfulStartHandling();
                             }
                             break;
 
                         case CashierHandling.IsSuccessfulAndStartHandling:
-                            cashier.SuccessfulHandling();
+                            devCashier.Cashier.SuccessfulHandling();
 
-                            item = cashier.StartHandling();
+                            item = devCashier.Cashier.StartHandling();
                             writeProvider = new Server2CashierWriteDataProvider { InputData = item };
                             await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
                             if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
                             {
-                                cashier.SuccessfulStartHandling();
+                             devCashier.Cashier.SuccessfulStartHandling();
                             }
                             break;
 
                         case CashierHandling.IsErrorAndStartHandling:
-                            cashier.ErrorHandling();
+                            devCashier.Cashier.ErrorHandling();
 
-                            item = cashier.StartHandling();
+                            item = devCashier.Cashier.StartHandling();
                             writeProvider = new Server2CashierWriteDataProvider { InputData = item };
                             await port.DataExchangeAsync(_timeRespone, writeProvider, ct);
                             if (writeProvider.IsOutDataValid)                //завершение транзакции ( успешная передача билета кассиру)
                             {
-                                cashier.SuccessfulStartHandling();
+                              devCashier.Cashier.SuccessfulStartHandling();
                             }
                             break;
 
