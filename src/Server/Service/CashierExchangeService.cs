@@ -43,7 +43,7 @@ namespace Server.Service
             foreach (var devCashier in _deviceCashiers)              //Запуск опроса кассиров
             {
                 var readProvider= new Server2CashierReadDataProvider { InputData = devCashier.Cashier.Id };
-                devCashier.DataExchangeSuccess= await port.DataExchangeAsync(_timeRespone, readProvider, ct);                        //TODO: можно добавить кассирам свойство IsConnect. И выставлять его как резульат обмена.
+                devCashier.DataExchangeSuccess= await port.DataExchangeAsync(_timeRespone, readProvider, ct);
 
                 if (!devCashier.IsConnect)
                 {

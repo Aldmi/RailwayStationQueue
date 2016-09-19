@@ -193,8 +193,9 @@ namespace Communication.SerialPort
                 return false;
             }
             catch (TimeoutException)
-            {             
-               //ReConnect();
+            {
+                //ReOpen();
+                return false;
             }
             IsRunDataExchange = false;
             return true;
